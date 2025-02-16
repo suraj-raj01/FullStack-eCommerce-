@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    font-family: "Karla", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+#dashboard {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Navigation Panel */
+#nav {
+    width: 20%;
+    height: 82vh;
+    background-color: #183961;
+    border: 1px dotted transparent;
+    border-right-color: white;
+}
+#nav a {
+    display: block;
+    padding: 8px;
+    width: 80%;
+    background-color: #eceaeaed;
+    text-align: center;
+    margin: 15px auto;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Content Section */
+#content-data {
+    width: 60%;
+    height: auto;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* Advertisement Section */
+#ads {
+    margin-top: 10px;
+    width: 15%;
+    height: 80vh;
+    background-color: white;
+    text-align: center;
+    align-content: center;
+    border-radius: 2px;
+    box-shadow: -2px 0px 10px #e4e3e3b2;
+}
+
+/* Form Section */
+#insert-form {
+    width: 100%;
+    box-shadow: 2px 2px 15px #dedcdced;
+    border-radius: 10px;
+    border: 1px dotted #183961;
+    padding: 10px;
+}
+#insert-form Button {
+    width: 100%;
+}
+#insert-form Form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#insert-form Form #box {
+    width: 40%;
+}
+
+/* Header */
+#header {
+    width: 100%;
+    height: 10vh;
+    background-color: #183961;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dotted white;
+    padding: 0 15px;
+}
+#header #box {
+    color: #fff;
+    font-size: 30px;
+    display: flex;
+    font-weight: bold;
+    gap: 20px;
+}
+
+/* Dashboard Display */
+#dashboard-display {
+    height: 79vh;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dashboard Items */
+#dashboard-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px dotted;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+#dashboard-image {
+    width: 30%;
+}
+#dashboard-data {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 15px;
+}
+#dashboard-btns {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+    #nav {
+        width: 25%;
+    }
+    #content-data {
+        width: 65%;
+    }
+    #dashboard-image{
+        width: 25%;
+        text-align: start;
+    }
+    #dashboard-data {
+        width: 60%;
+        text-align: start;
+        font-size: 14px;
+    }
+    #ads {
+        width: 10%;
+    }
+}
+
+@media (max-width: 1024px) {
+    #nav {
+        width: 25%;
+        font-size: 14px;
+    }
+    #content-data {
+        width: 65%;
+    }
+    #dashboard-image, #dashboard-data {
+        width: 100%;
+        text-align: start;
+    }
+    #ads {
+        width: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    #dashboard {
+        flex-direction: column;
+        align-items: center;
+    }
+    #nav, #content-data{
+        width: 100%;
+        height: auto;
+    }
+    #dashboard-items {
+        flex-direction: column;
+        align-items: center;
+    }
+    #dashboard-image, #dashboard-data {
+        width: 100%;
+        text-align: start;
+    }
+    #insert-form Form #box {
+        width: 80%;
+    }
+    #ads {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    #header #box {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+    #insert-form Form {
+        flex-direction: column;
+    }
+    #insert-form Form #box {
+        width: 100%;
+    }
+}

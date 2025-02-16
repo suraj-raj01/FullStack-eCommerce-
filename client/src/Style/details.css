@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    font-family: "Karla", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+#item-details{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px;
+}
+#item-details #images{
+    width: 35%;
+}
+#item-details #contents{
+    width: 55%;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+}
+#item-details #contents #pro-name{
+    color: #183961;
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+#item-details #contents #description{
+    padding-bottom: 10px;
+}
+#cards #box #contents #price{
+    font-size: 18px;
+    color: brown;
+}
+#item-details #contents #btns{
+    margin-top: 10px;
+    display: flex;
+    padding: 10px 0px;
+    align-content: center;
+    justify-content: start;
+    gap: 10px;
+}

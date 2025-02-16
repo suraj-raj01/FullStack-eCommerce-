@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    font-family: "Karla", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    box-sizing: border-box;
+}
+.navbar{
+    /* height: 9vh; */
+    box-shadow: 0 0 10px #c0bebeb4;
+    background-color: white;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+.navbar a{
+    font-weight: bold;
+    color: #183961;
+}
+.navbar i{
+    color: #183961;
+}
+
+#footer{
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 20px 0px;
+    color: #183961;
+    border: 1px dotted transparent;
+    border-top-color: #183961;
+}
+#footer-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 15px;
+    font-size: 20px;
+    color: #183961;
+}
+#carousel-img{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#carousel-img img{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#form{
+    width: 500px;
+    margin: 100px auto;
+    padding: 15px 25px;
+    box-shadow: 0px 5px 15px #c0bebeb4;
+    border: 1px dotted;
+    border-radius: 10px;
+    text-align: center;
+}
+#form Button{
+    width: 100%;
+}
+
+#categories{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+#categories #box{
+    width: 200px;
+    height: 100px;
+    box-shadow: 1px 1px 5px #c0bebeb4;
+    text-align: center;
+    align-content: center;
+    border-radius: 5px;
+    transition: 0.8s;
+    background-color: #c0bebeb4;
+}
+#categories #box:hover{
+    background-color: deepskyblue;
+    transition: 0.8s;
+    cursor: pointer;
+}
+
+#cards{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+#cards #box{
+    width: 100%;
+    box-shadow: 1px 1px 5px #c0bebeb4;
+    text-align: center;
+    align-content: center;
+    border-radius: 5px;
+    transition: 0.8s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+#cards #box #images{
+    width: 30%;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#cards #box #images img{
+    object-fit: contain;
+}
+#cards #box #img-option{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+#cards #box #contents{
+    width: 65%;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+}
+#cards #box #contents #pro-name{
+    color: #183961;
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+#cards #box #contents #description{
+    padding-bottom: 10px;
+}
+#cards #box #contents #price{
+    font-size: 18px;
+    color: brown;
+}
+#cards #box #contents #btns{
+    margin-top: 10px;
+    display: flex;
+    padding: 10px 0px;
+    align-content: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+#crousel {
+    width: 100%;
+    margin: auto;
+    padding: 5px 0px;
+}
+
+/* home page styling */
+
+#hero{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+}
+#hero #filter{
+    margin-top: 15px;
+    width: 20%;
+    height: 100vh;
+    position: sticky;
+    top: 10vh;
+    padding: 5px 10px;
+    border: 1px dotted transparent;
+    border-right-color: #183961;
+    border-top-color: #183961;
+    border-top-right-radius: 5px;
+}
+#hero #filterdata{
+    width: 70%;
+}
+
+#cart-count{
+    border-radius: 50px;
+    font-weight: bold;
+    margin-left: 2px;
+    font-size: 12px;
+    padding: 1px 4px;
+    box-shadow: 0 0 1px;
+}
+Table td{
+    text-align: center;
+    align-content: center;
+}
