@@ -41,13 +41,17 @@ const PrimaryProduct = () => {
               src={`${BASE_URL}/${key.defaultImage}`}
               alt=""
               height="250px"
+              onClick={()=>{seeDetails(key._id)}}
             />
             <div id="img-option">
             {
             key.images.map((key1)=>{
               return(
                 <>
-                    <img src={`${BASE_URL}/${key1[2]}`} alt="" height='70px' />
+                    <img src={`${BASE_URL}/${key1[1]}`} alt="!error" height='40px' />
+                    <img src={`${BASE_URL}/${key1[2]}`} alt="!error" height='40px' />
+                    <img src={`${BASE_URL}/${key1[3]}`} alt="!error" height='40px' />
+                    <img src={`${BASE_URL}/${key1[4]}`} alt="!error" height='40px' />
                     {
                       
                     }
@@ -102,50 +106,6 @@ const PrimaryProduct = () => {
     <>
       <div id="cards">
         {res}
-        {/* <div id="box">
-              <div id="images"> images </div>
-              <div id="contents">Contents</div>
-            </div>
-            <div id="box">
-              <div id="images"> images </div>
-              <div id="contents">Contents</div>
-            </div>
-            <div id="box">
-              <div id="images"> images </div>
-              <div id="contents">Contents</div>
-            </div>
-            <div id="box">
-              <div id="images"> images </div>
-              <div id="contents">Contents</div>
-            </div>
-            <div id="box">
-              <div id="images"> images </div>
-              <div id="contents">Contents</div>
-            </div>
-            <div id="box">
-              <div id="images"> images </div>
-              <div id="contents">Contents</div>
-            </div>
-            <div id="box">
-              <div id="images"> images </div>
-              <div id="contents">Contents</div>
-            </div>
-            <div id="box">
-              <div id="images"> images </div>
-              <div id="contents">Contents</div>
-            </div>
-            <div id="box">
-              <div id="images"></div>
-              <div id="contents"></div>
-            </div>
-            <div id="box">
-              <div id="images"></div>
-              <div id="contents"></div>
-            </div>
-            <div id="box">
-              <div id="images"></div>
-              <div id="contents"></div>
-            </div> */}
       </div>
     </>
   );

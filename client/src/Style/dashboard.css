@@ -131,6 +131,7 @@
     align-items: center;
     justify-content: start;
     gap: 15px;
+    padding-top: 10px;
 }
 
 /* Responsive Design */

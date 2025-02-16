@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    font-family: "Karla", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+#main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+#main #box{
+    height: 200px;
+    width: 480px;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #c0bebeb4;
+    /* border: 1px solid; */
+}
+#main #box img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

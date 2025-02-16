@@ -26,7 +26,6 @@ const ItemDetails = () => {
       console.log(error)
     }
   }
-
   useEffect(()=>{
    loadData();
   },[]);
@@ -40,7 +39,9 @@ const ItemDetails = () => {
               alt=""
               height="400px"
             />
+            
           </div>
+
           <div id="contents">
             <b id="pro-name">{mydata.name}</b>
             <b id="description">{mydata.description}</b>

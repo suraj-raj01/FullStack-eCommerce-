@@ -14,6 +14,14 @@ import Update from "./Admin/Update";
 import AdminProfile from "./Admin/AdminProfile";
 import EditProductData from "./Admin/EditProductData";
 import ItemDetails from "./Pages/ItemDetails";
+import PrimaryProduct from "./Pages/PrimaryProduct";
+import Laptops from "./Categories/Laptops";
+import Mobiles from "./Categories/Mobiles";
+import Tv from "./Categories/Tv";
+import Watches from "./Categories/Watches";
+import Keyboard from "./Categories/Keyboard";
+import Mouse from "./Categories/Mouse";
+import Likes from "./Pages/Likes";
 
 const App = () => {
   return (
@@ -22,7 +30,17 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LayOut/>}>
             <Route index element={<Home/>}/>
-            <Route path="home" element={<Home/>}/>
+            <Route path="home" element={<Home/>}>
+              <Route index element={<PrimaryProduct/>}/>
+              <Route path="primaryproduct" element={<PrimaryProduct/>}/>
+              <Route path="laptops" element={<Laptops/>}/>
+              <Route path="mobiles" element={<Mobiles/>}/>
+              <Route path="tv" element={<Tv/>}/>
+              <Route path="watches" element={<Watches/>}/>
+              <Route path="keyboard" element={<Keyboard/>}/>
+              <Route path="mouse" element={<Mouse/>}/>
+            </Route>
+            <Route path="likes" element={<Likes/>}/>
             <Route path="about" element={<About/>}/>
             <Route path="login" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
