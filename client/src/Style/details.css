@@ -8,38 +8,197 @@
     box-sizing: border-box;
 }
 
-#item-details{
+/* Item Details Section */
+#item-details {
     display: flex;
     align-items: center;
     justify-content: start;
+    gap: 15px;
     padding: 10px;
+    flex-wrap: wrap; /* Ensures elements wrap on smaller screens */
 }
-#item-details #images{
-    width: 35%;
+
+#item-details #images {
+    width: 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 10px;
+    padding: 0px 5px;
 }
-#item-details #contents{
-    width: 55%;
+
+#item-details #images img {
+    object-fit: contain;
+    color: red;
+    width: 100%; /* Ensures the image scales with the container */
+}
+
+#item-details #img-option {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+#item-details #img-option img {
+    object-fit: contain;
+    border: 1px solid #efecec;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+}
+
+#item-details #contents {
+    width: 50%;
     text-align: start;
     display: flex;
     flex-direction: column;
+    font-size: 18px;
 }
-#item-details #contents #pro-name{
+
+#item-details #contents #pro-name {
     color: #183961;
-    font-size: 22px;
+    font-size: 28px;
     padding-bottom: 10px;
 }
-#item-details #contents #description{
-    padding-bottom: 10px;
+
+#item-details #contents #description {
+    padding-bottom: 15px;
+    font-size: 18px;
 }
-#cards #box #contents #price{
+
+#item-details #contents #price {
     font-size: 18px;
     color: brown;
 }
-#item-details #contents #btns{
+
+#item-details #contents #btns {
     margin-top: 10px;
     display: flex;
     padding: 10px 0px;
     align-content: center;
     justify-content: start;
     gap: 10px;
+}
+
+/* Responsive Media Queries */
+
+/* For Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    #item-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #item-details #images {
+        width: 80%; /* Images take more space */
+        justify-content: center;
+    }
+
+    #item-details #contents {
+        width: 80%;
+        text-align: center;
+    }
+
+    #item-details #contents #pro-name {
+        font-size: 24px; /* Adjust font size for mobile */
+    }
+
+    #item-details #contents #description {
+        font-size: 16px;
+    }
+
+    #item-details #contents #price {
+        font-size: 16px;
+    }
+
+    #item-details #img-option img {
+        height: 50px; /* Slightly reduce image size */
+        width: 50px;
+    }
+}
+
+/* For Mobile Phones (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    #item-details {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Increased gap for better spacing */
+    }
+
+    #item-details #images {
+        width: 100%; /* Image section takes full width */
+        flex-direction: column; /* Stack images vertically */
+    }
+
+    #item-details #contents {
+        width: 90%; /* Make content section more fluid */
+        text-align: center;
+    }
+
+    #item-details #contents #pro-name {
+        font-size: 22px;
+    }
+
+    #item-details #contents #description {
+        font-size: 14px;
+    }
+
+    #item-details #contents #price {
+        font-size: 16px;
+        color: brown;
+    }
+
+    #item-details #img-option img {
+        height: 45px; /* Further reduce image size */
+        width: 45px;
+    }
+
+    #item-details #btns {
+        gap: 5px;
+    }
+}
+
+/* For Small Mobile Devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    #item-details {
+        padding: 5px;
+    }
+
+    #item-details #images {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    #item-details #contents {
+        width: 95%;
+        font-size: 16px;
+    }
+
+    #item-details #contents #pro-name {
+        font-size: 20px;
+    }
+
+    #item-details #contents #description {
+        font-size: 14px;
+    }
+
+    #item-details #contents #price {
+        font-size: 14px;
+    }
+
+    #item-details #btns {
+        gap: 3px;
+    }
+
+    #item-details #img-option img {
+        height: 40px;
+        width: 40px;
+    }
 }

@@ -119,6 +119,9 @@
 #dashboard-image {
     width: 30%;
 }
+#dashboard-image img{
+    object-fit: contain;
+}
 #dashboard-data {
     width: 65%;
     display: flex;

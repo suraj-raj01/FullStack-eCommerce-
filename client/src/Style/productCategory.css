@@ -8,22 +8,77 @@
     box-sizing: border-box;
 }
 
-#main{
+/* Main Section */
+#main {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    margin: 10px;
 }
-#main #box{
+
+#main #box {
     height: 200px;
     width: 480px;
     border-radius: 5px;
     box-shadow: 0 0 1px #c0bebeb4;
     /* border: 1px solid; */
+    overflow: hidden; /* Prevents image from spilling over the container */
 }
-#main #box img{
+
+#main #box img {
     height: 100%;
     width: 100%;
     object-fit: contain;
+}
+
+/* Responsive Media Queries */
+
+/* For Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    #main {
+        justify-content: center; /* Center the content on tablets */
+    }
+
+    #main #box {
+        width: 45%; /* Reduced width to accommodate smaller screens */
+        height: 180px; /* Adjusted height */
+    }
+
+    #main #box img {
+        object-fit: cover; /* To ensure the image covers the area appropriately */
+    }
+}
+
+/* For Mobile Phones (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    #main {
+        justify-content: center;
+    }
+
+    #main #box {
+        width: 90%; /* Full width with some padding */
+        height: 150px; /* Reduced height */
+    }
+
+    #main #box img {
+        object-fit: cover; /* For mobile devices, better to fill the space */
+    }
+}
+
+/* For Small Mobile Devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    #main {
+        justify-content: center;
+    }
+
+    #main #box {
+        width: 100%; /* Full width for smaller mobile screens */
+        height: 120px; /* Even more compact for smaller screens */
+    }
+
+    #main #box img {
+        object-fit: cover; /* Ensure the image covers the space */
+    }
 }

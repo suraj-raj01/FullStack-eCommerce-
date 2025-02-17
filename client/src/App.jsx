@@ -18,10 +18,12 @@ import PrimaryProduct from "./Pages/PrimaryProduct";
 import Laptops from "./Categories/Laptops";
 import Mobiles from "./Categories/Mobiles";
 import Tv from "./Categories/Tv";
-import Watches from "./Categories/Watches";
 import Keyboard from "./Categories/Keyboard";
 import Mouse from "./Categories/Mouse";
 import Likes from "./Pages/Likes";
+import Checkout from "./Pages/Checkout";
+import SmartWatches from "./Categories/SmartWatches";
+import Watches from "./Categories/Watches";
 
 const App = () => {
   return (
@@ -36,6 +38,7 @@ const App = () => {
               <Route path="laptops" element={<Laptops/>}/>
               <Route path="mobiles" element={<Mobiles/>}/>
               <Route path="tv" element={<Tv/>}/>
+              <Route path="smartwatches" element={<SmartWatches/>}/>
               <Route path="watches" element={<Watches/>}/>
               <Route path="keyboard" element={<Keyboard/>}/>
               <Route path="mouse" element={<Mouse/>}/>
@@ -46,6 +49,7 @@ const App = () => {
             <Route path="register" element={<Register/>}/>
             <Route path="cartitems" element={<CartItems/>}/>
             <Route path="itemdetails/:id" element={<ItemDetails/>}/>
+            <Route path="checkout" element={<Checkout/>}/>
           </Route>
           <Route path="/admindashboard" element={<AdminDashboard/>}>
             <Route index element={<AdminProfile/>}/>

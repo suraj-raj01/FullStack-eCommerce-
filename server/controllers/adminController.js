@@ -143,6 +143,61 @@ const itemDetails = async(req,res)=>{
     }
 }
 
+const displayLaptops = async(req,res) =>{
+    try {
+        const Data = await ProductModel.find({category:"Laptops"});
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).josn({msg:"Something went wrong!!"})
+    }
+}
+
+const displayMobiles = async(req,res) =>{
+    try {
+        const Data = await ProductModel.find({category:"Mobiles"});
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).josn({msg:"Something went wrong!!"})
+    }
+}
+
+const displayTv = async(req,res) =>{
+    try {
+        const Data = await ProductModel.find({category:"TV"});
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).josn({msg:"Something went wrong!!"})
+    }
+}
+
+const displayMouse = async(req,res) =>{
+    try {
+        const Data = await ProductModel.find({category:"Mouse"});
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).josn({msg:"Something went wrong!!"})
+    }
+}
+
+const displayKeyboards = async(req,res) =>{
+    try {
+        const Data = await ProductModel.find({category:"Keyboard"});
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).josn({msg:"Something went wrong!!"})
+    }
+}
+
+const displaySmartWatches = async(req,res) =>{
+    try {
+        const Data = await ProductModel.find({category:"SmartWatch"});
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).josn({msg:"Something went wrong!!"})
+    }
+}
+
+
 module.exports = {
     registration,
     login,
@@ -154,5 +209,11 @@ module.exports = {
     makeProductPrimary,
     makeProductNormal,
     displayPrimaryData,
-    itemDetails
+    itemDetails,
+    displayLaptops,
+    displayMobiles,
+    displayTv,
+    displayMouse,
+    displayKeyboards,
+    displaySmartWatches
 }

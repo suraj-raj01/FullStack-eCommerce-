@@ -28,7 +28,7 @@ const Update = () => {
       <div id='dashboard-items'>
 
        <div id='dashboard-image'>
-        <img src={`${BASE_URL}/${key.defaultImage}`} alt="" height='250px'/>
+        <img src={`${BASE_URL}/${key.defaultImage}`} alt="" width='100%'/>
         </div>
 
        <div id='dashboard-data'>

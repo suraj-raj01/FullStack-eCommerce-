@@ -8,15 +8,16 @@ import {addCartData,addLikeData} from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
-const Laptops = () => {
-  const[status,setStatus] = useState(false);
+const SmartWatches = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const[mydata,setMydata] = useState([]);
   const [value, setValue] = useState(3);
+  const[status,setStatus] = useState(false);
+
   const loadData = async() =>{
-    let api = `${BASE_URL}/admin/displaylaptops`;
+    let api = `${BASE_URL}/admin/displaysmartwatches`;
     try {
       const response = await axios.post(api);
       setMydata(response.data);
@@ -125,7 +126,7 @@ const Laptops = () => {
 
   return (
     <>
-        {status?(
+       {status?(
           <center><img src="https://i.imgur.com/mCYOIO1.gif" alt="loader" height='150px'/></center>
         ):(
           <div id="cards">
@@ -136,4 +137,4 @@ const Laptops = () => {
   )
 }
 
-export default Laptops
+export default SmartWatches

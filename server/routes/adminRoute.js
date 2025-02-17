@@ -42,6 +42,12 @@ route.post("/makeproductprimary", adminController.makeProductPrimary);
 route.post("/makeproductnormal", adminController.makeProductNormal);
 route.get("/displayprimarydata", adminController.displayPrimaryData);
 route.post("/itemdetails", adminController.itemDetails);
+route.post("/displaylaptops", adminController.displayLaptops);
+route.post("/displaymobiles", adminController.displayMobiles);
+route.post("/displaytv", adminController.displayTv);
+route.post("/displaymouse", adminController.displayMouse);
+route.post("/displaykeyboards", adminController.displayKeyboards);
+route.post("/displaysmartwatches", adminController.displaySmartWatches);
 
 
 module.exports = route;
