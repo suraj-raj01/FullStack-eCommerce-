@@ -7,7 +7,7 @@ const Crousel = () => {
         <div id="crousel">
         <Carousel fade>
           
-          <Carousel.Item>
+          <Carousel.Item id='carousel-img'>
             <img
               src="https://media.product.which.co.uk/prod/images/ar_2to1_1500x750/22a475e555d7-best-laptop-deals.jpg"
               alt=""
@@ -20,7 +20,7 @@ const Crousel = () => {
               <Button variant="outline-primary">Info →</Button>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item id='carousel-img'>
             <img
               src="https://www.top10mobileshop.com/images/top10mobiles.com/slider/270514103202408151136.jpg"
               alt=""
@@ -35,7 +35,7 @@ const Crousel = () => {
           </Carousel.Item>
         
           
-          <Carousel.Item>
+          <Carousel.Item id='carousel-img'>
             <img
               src="https://www.top10mobileshop.com/images/top10mobiles.com/slider/747523986202408151132.jpg"
               alt=""
@@ -49,7 +49,7 @@ const Crousel = () => {
             </Carousel.Caption>
           </Carousel.Item>
           {/* keyboards */}
-          <Carousel.Item>
+          <Carousel.Item id='carousel-img'>
             <img
               src="https://m.media-amazon.com/images/I/61OzRc5FK1L.jpg"
               alt=""
@@ -62,7 +62,7 @@ const Crousel = () => {
               <Button variant="outline-primary">Info →</Button>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item id='carousel-img'>
             <img
               src="https://www.apple.com/newsroom/images/product/mac/standard/Apple_MacBook-Pro_14-16-inch_10182021_big.jpg.slideshow-xlarge_2x.jpg"
               alt=""

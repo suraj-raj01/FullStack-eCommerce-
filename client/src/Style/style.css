@@ -47,7 +47,6 @@
 }
 
 #carousel-img {
-    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,8 +56,8 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    object-fit: cover;
-    height: 500px;
+    /* object-fit: cover; */
+    height: 450px;
     width: 100%;
 }
 
@@ -357,9 +356,12 @@ Table td i {
         width: 95%;
         margin: 20px auto;
     }
-
+  
     #carousel-img img {
+        background-position: center;
+        background-repeat: no-repeat;
         height: 250px;
+        width: 100%;
     }
 
     #cards #box {
