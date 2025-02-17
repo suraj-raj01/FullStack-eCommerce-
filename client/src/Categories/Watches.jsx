@@ -2,7 +2,9 @@ import React from 'react'
 
 const Watches = () => {
   return (
-    <div>Watches</div>
+    <>
+      <h2>Items not found!!!</h2>
+    </>
   )
 }
 

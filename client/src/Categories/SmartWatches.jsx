@@ -21,7 +21,6 @@ const SmartWatches = () => {
     try {
       const response = await axios.post(api);
       setMydata(response.data);
-      console.log(response.data);
     } catch (error) {
       alert(error.response.data.msg);
     }
