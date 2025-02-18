@@ -16,12 +16,15 @@ const ItemDetails = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState(3);
   const [mydata, setMydata] = useState({});
+  const [Images,setImages] = useState([]);
 
   const loadData = async () => {
     const api = `${BASE_URL}/admin/itemdetails`;
     try {
       const response = await axios.post(api, { id: id });
       setMydata(response.data);
+      setImages(response.data.images);
+      console.log(Images)
     } catch (error) {
       console.log(error);
     }
@@ -40,8 +43,17 @@ const ItemDetails = () => {
             height="400px"
           />
           <div id="img-option">
-            {/* <img src={`${BASE_URL}/${mydata.images[0][0]}`} alt="!error" height='40px' />
-            <img src={`${BASE_URL}/${mydata.images[0][1]}`} alt="!error" height='40px' /> */}
+            {Images.map((key)=>{
+              return(
+                <>
+                <img src={`${BASE_URL}/${key[0]}`} alt="!error" height='40px' />
+                <img src={`${BASE_URL}/${key[1]}`} alt="!error" height='40px' />
+                <img src={`${BASE_URL}/${key[2]}`} alt="!error" height='40px' />
+                <img src={`${BASE_URL}/${key[3]}`} alt="!error" height='40px' />
+                </>
+              )
+            })}
+            
           </div>
         </div>
 

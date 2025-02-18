@@ -73,10 +73,10 @@ const Laptops = () => {
             {/* <b>Subcategory : {key.subcategory}</b> */}
             <b id="price">Price : {key.price} {".00 ₹"}</b>
             {/* <b>Status : {key.status}</b> */}
-            <b>Ratings : {key.ratings} 
+            <b>Ratings : {value} 
               <h2></h2>
               <Flex gap="middle" vertical>
-              <Rate tooltips={desc} onChange={setValue} value={key.ratings} />
+              <Rate tooltips={desc} onChange={setValue} value={value} />
               </Flex></b>
             <div id="btns">
               <Button size="sm" variant="success" onClick={()=>
