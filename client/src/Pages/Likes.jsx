@@ -32,15 +32,13 @@ const Likes = () => {
           <td>{key.description}</td>
           <td style={{width:'120px'}}>{key.price * key.qnty}{".00 ₹"}</td>
           <td style={{width:'120px'}}>
-            <Button size='sm' variant='success' onClick={() => {dispatch(itemDislike({id:key.id}))}}>
+            <Button size='sm' variant='danger' onClick={() => {dispatch(itemDislike({id:key.id}))}}>
             <i style={{color:'white'}} class="fas fa-thumbs-down"></i>  Dislike</Button>
           </td>
         </tr>
       </>
     );
   });
-
-
 
   return (
     <>
@@ -59,9 +57,6 @@ const Likes = () => {
       </Table>
     <div id="checkout-btn">
     <h3>Total Price : {totalPrime}{".00 ₹"}</h3>
-    <Button variant="success" size="sm" onClick={()=>{naviage("/checkout")}}>
-      <i class="fas fa-money-check-dollar"></i>  CHECKOUT BILL
-       </Button>
     </div>
     </>
   )

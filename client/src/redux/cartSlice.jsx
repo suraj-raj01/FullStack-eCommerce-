@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const counterSlice = createSlice({
   name: "addtoCart",
   name:"addtoLike",
@@ -15,7 +14,7 @@ const counterSlice = createSlice({
         alert("Product aleready added!");
       } else {
         state.cart.push(action.payload);
-        alert("Item addedd Successfully")
+        alert("Item add successfully!!")
       }
     },
     itemInc: (state, action) => {
@@ -61,7 +60,9 @@ const counterSlice = createSlice({
     },
   },
   
-});
+},
+);
+
 
 export const { addCartData, itemInc, itemDec, itemDel,addLikeData,itemDislike } = counterSlice.actions;
 export default counterSlice.reducer;
