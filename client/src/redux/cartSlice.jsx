@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Alert from 'react-bootstrap/Alert';
 
 const counterSlice = createSlice({
   name: "addtoCart",

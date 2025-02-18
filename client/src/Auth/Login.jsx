@@ -19,13 +19,12 @@ const Login = () => {
     }
 
     const handleSubmit=async()=>{
-        let api = `${BASE_URL}/admin/login`;
+        let api = `${BASE_URL}/user/login`;
         try {
             const response = await axios.post(api,input);
             toast.success('Item added successfully!!');
             if(response.data.useremail==="admin123@gmail.com")
             navigate("/admindashboard")
-            
         } catch (error) {
           toast.success(error.response.data.msg);
         }
