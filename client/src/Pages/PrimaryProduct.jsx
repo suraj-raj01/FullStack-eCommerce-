@@ -12,7 +12,7 @@ const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 const PrimaryProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [value, setValue] = useState(3);
+  const [value, setValue] = useState(0);
   const [mydata, setMydata] = useState([]);
   const [status, setStatus] = useState(false);
 
@@ -26,6 +26,14 @@ const PrimaryProduct = () => {
     }
   };
 
+  const handleStar = async(proId)=>{
+    const api = `${BASE_URL}/admin/updateratingstar`;
+    try {
+      const response = await axios.post(api,{proId:proId,value:value});
+    } catch (error) {
+      console.log(error);
+    }
+  }
   useEffect(() => {
     loadData();
   }, []);
@@ -95,10 +103,10 @@ const PrimaryProduct = () => {
             </b>
             {/* <b>Status : {key.status}</b> */}
             <b>
-              Ratings : {key.ratings}
+              Ratings : {value}
               <h2></h2>
               <Flex gap="middle" vertical>
-                <Rate tooltips={desc} onChange={setValue} value={key.ratings} />
+                <Rate tooltips={desc} onChange={(e)=>{setValue(e.target.value)}} onClick={()=>{handleStar(key._id)}}/>
               </Flex>
             </b>
             <div id="btns">

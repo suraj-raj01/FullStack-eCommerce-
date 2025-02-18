@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import BASE_URL from "../Config";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -21,12 +22,12 @@ const Login = () => {
         let api = `${BASE_URL}/admin/login`;
         try {
             const response = await axios.post(api,input);
-            message.success(response.data);
+            toast.success('Item added successfully!!');
             if(response.data.useremail==="admin123@gmail.com")
             navigate("/admindashboard")
             
         } catch (error) {
-            message.error(error.response.data.msg);
+          toast.success(error.response.data.msg);
         }
     }
 
@@ -64,6 +65,7 @@ const Login = () => {
         <b onClick={register} style={{cursor:'pointer'}}>don't have an account</b>
         <br />
       </Form>
+      <ToastContainer />
      </div>
     </>
   );

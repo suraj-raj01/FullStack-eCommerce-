@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Alert from 'react-bootstrap/Alert';
 
 const counterSlice = createSlice({
   name: "addtoCart",
@@ -15,7 +16,7 @@ const counterSlice = createSlice({
         alert("Product aleready added!");
       } else {
         state.cart.push(action.payload);
-        alert("Product succesfully added!");
+        alert("Item addedd Successfully")
       }
     },
     itemInc: (state, action) => {
@@ -60,6 +61,7 @@ const counterSlice = createSlice({
       alert("Item disliked!!")
     },
   },
+  
 });
 
 export const { addCartData, itemInc, itemDec, itemDel,addLikeData,itemDislike } = counterSlice.actions;

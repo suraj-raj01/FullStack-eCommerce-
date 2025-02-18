@@ -102,7 +102,7 @@
 
     #item-details #contents {
         width: 80%;
-        text-align: center;
+        text-align: start;
     }
 
     #item-details #contents #pro-name {
@@ -138,7 +138,7 @@
 
     #item-details #contents {
         width: 90%; /* Make content section more fluid */
-        text-align: center;
+        text-align: start;
     }
 
     #item-details #contents #pro-name {
@@ -154,9 +154,12 @@
         color: brown;
     }
 
+    #item-details #img-option{
+        flex-direction: row;
+    }
     #item-details #img-option img {
-        height: 45px; /* Further reduce image size */
-        width: 45px;
+        height: 65px;
+        width: 65px;
     }
 
     #item-details #btns {
@@ -179,6 +182,7 @@
     #item-details #contents {
         width: 95%;
         font-size: 16px;
+        text-align: start;
     }
 
     #item-details #contents #pro-name {
@@ -197,8 +201,11 @@
         gap: 3px;
     }
 
+    #item-details #img-option{
+        flex-direction: row;
+    }
     #item-details #img-option img {
-        height: 40px;
-        width: 40px;
+        height: 50px;
+        width: 50px;
     }
 }
