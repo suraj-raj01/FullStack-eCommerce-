@@ -47,7 +47,5 @@ route.post("/displaymouse", adminController.displayMouse);
 route.post("/displaykeyboards", adminController.displayKeyboards);
 route.post("/displaysmartwatches", adminController.displaySmartWatches);
 route.post("/updaterating", adminController.updateRating);
-route.post("/loadrelateddata", adminController.loadRelatedData);
-
 
 module.exports = route;
