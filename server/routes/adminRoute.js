@@ -32,8 +32,6 @@ const upload = multer({
 });
 
 route.post("/productsave",upload.array('files', 10), adminController.productSave);
-route.post("/registration", adminController.registration);
-route.post("/login", adminController.login);
 route.get("/displaydata", adminController.displayData);
 route.post("/editproductdata", adminController.editProductData);
 route.post("/editproductsave", adminController.editProductSave);
@@ -48,7 +46,8 @@ route.post("/displaytv", adminController.displayTv);
 route.post("/displaymouse", adminController.displayMouse);
 route.post("/displaykeyboards", adminController.displayKeyboards);
 route.post("/displaysmartwatches", adminController.displaySmartWatches);
-route.post("/updateratingstar", adminController.updateRatingStar);
+route.post("/updaterating", adminController.updateRating);
+route.post("/loadrelateddata", adminController.loadRelatedData);
 
 
 module.exports = route;
