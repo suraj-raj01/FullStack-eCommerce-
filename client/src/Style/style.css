@@ -62,11 +62,11 @@
 }
 
 #form {
-    width: 500px;
-    margin: 100px auto;
+    width: 600px;
+    margin: 10px auto;
     padding: 15px 25px;
     box-shadow: 0px 5px 15px #c0bebeb4;
-    border: 1px dotted;
+    /* border: 1px dotted; */
     border-radius: 10px;
     text-align: center;
 }
@@ -354,7 +354,7 @@ Table td i {
 
     #form {
         width: 95%;
-        margin: 20px auto;
+        margin: 10px auto;
     }
   
     #carousel-img img {

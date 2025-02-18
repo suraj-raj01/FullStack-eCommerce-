@@ -16,6 +16,7 @@
     gap: 15px;
     padding: 10px;
     flex-wrap: wrap; /* Ensures elements wrap on smaller screens */
+    margin-bottom: 20px;
 }
 
 #item-details #images {
@@ -34,7 +35,7 @@
     width: 100%; /* Ensures the image scales with the container */
 }
 
-#item-details #img-option {
+#item-details #img-option{
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -42,6 +43,7 @@
     justify-content: center;
     gap: 10px;
     border-radius: 5px;
+    width: 300px;
 }
 
 #item-details #img-option img {
@@ -52,6 +54,7 @@
     width: 60px;
     padding: 5px;
 }
+
 
 #item-details #contents {
     width: 50%;
@@ -122,6 +125,8 @@
         width: 50px;
     }
 }
+
+
 
 /* For Mobile Phones (max-width: 768px) */
 @media screen and (max-width: 768px) {

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
-import { message } from "antd";
 import BASE_URL from "../Config";
-import { toast } from "react-toastify";
+import { toast,ToastContainer } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -19,13 +20,13 @@ const Register = () => {
   };
 
   const handleSubmit = async() => {
-    let api = `${BASE_URL}/user/registration`;
+    const api = `${BASE_URL}/user/registration`;
     try {
-        const response = await axios.post(api,input);
-        toast.success("Registration successfully completed!!");
+        const res = await axios.post(api,input);
+        toast.success(res.data);
         navigate("/login")
     } catch (error) {
-        message.error(error.response.data.msg);
+      toast.success(error);
     }
   };
 
@@ -36,7 +37,86 @@ const Register = () => {
   return (
     <>
       <div id="form">
-        <Form>
+      <Form>
+      <h4 className="text-center">Registration Form</h4>
+      <br />
+
+      <Form.Group className="mb-3" controlId="formGridAddress1">
+        <Form.Control placeholder="Enter your name" 
+              name="name"
+              value={input.name}
+              onChange={handleInput}/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formGridAddress1">
+        <Form.Control placeholder="Shipping Address" 
+        name="shippingaddress"
+        value={input.shippingaddress}
+        onChange={handleInput}/>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formGridAddress2">
+        <Form.Control placeholder="Apartment, studio, or floor" 
+        name="apartment"
+        value={input.apartment}
+        onChange={handleInput}/>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formGridAddress2">
+        <Form.Control type="number" placeholder="Contact no" 
+        name="mobileno"
+        value={input.mobileno}
+        onChange={handleInput}/>
+      </Form.Group>
+
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridCity">
+          <Form.Control placeholder="Pin Code"
+          name="pincode"
+          value={input.pincode}
+          onChange={handleInput}/>
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridState">
+          <Form.Control placeholder="District"
+          name="district"
+          value={input.district}
+          onChange={handleInput}/>
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridZip">
+          <Form.Control placeholder="State"
+          name="state"
+          value={input.state}
+          onChange={handleInput}/>
+        </Form.Group>
+      </Row>
+
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Control type="email" placeholder="Enter email" 
+          name="useremail"
+          value={input.useremail}
+          onChange={handleInput}/>
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Control type="password" placeholder="Password" 
+          name="password"
+          value={input.password}
+          onChange={handleInput}
+        />
+        </Form.Group>
+      </Row>
+      <br />
+      <Button variant="primary" onClick={handleSubmit}>
+        Submit
+      </Button>
+      <br /><br />
+      <b onClick={login} style={{ cursor: "pointer" }}>
+            already have an account
+          </b>
+    </Form>
+        {/* <Form>
           <h4 className="text-center">Registration Form</h4>
           <br />
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -89,7 +169,7 @@ const Register = () => {
             already have an account
           </b>
           <br />
-        </Form>
+        </Form> */}
       </div>
       <ToastContainer />
     </>

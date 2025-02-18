@@ -12,7 +12,7 @@ const PrimaryProduct = () => {
   const dispatch = useDispatch();
   const [mydata, setMydata] = useState([]);
   const [status, setStatus] = useState(false);
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState(0);
 
   const loadData = async () => {
     const api = `${BASE_URL}/admin/displayprimarydata`;
@@ -43,6 +43,7 @@ const PrimaryProduct = () => {
     let api=`${BASE_URL}/admin/updaterating`;
     try {
       const response = await axios.post(api,{id:id,value:value})
+      setValue(response.data)
     } catch (error) {
       console.log(error);
     }
@@ -102,7 +103,7 @@ const PrimaryProduct = () => {
             </b>
             {/* <b>Status : {key.status}</b> */}
             <b>
-              Ratings : {key.ratings}
+              Ratings : {key.ratings} {"/ 5"}
               <h2></h2>
               <div className=" flex justify-content-center">
             <Rating value={key.ratings} onChange={(e) => setValue(e.value)} onClick={()=>{handleRate(key._id)}} cancel={false} />
