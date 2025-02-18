@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import { message } from "antd";
 import BASE_URL from "../Config";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,10 +19,10 @@ const Register = () => {
   };
 
   const handleSubmit = async() => {
-    let api = `${BASE_URL}/admin/registration`;
+    let api = `${BASE_URL}/user/registration`;
     try {
         const response = await axios.post(api,input);
-        console.log(response.data);
+        toast.success("Registration successfully completed!!");
         navigate("/login")
     } catch (error) {
         message.error(error.response.data.msg);
@@ -90,6 +91,7 @@ const Register = () => {
           <br />
         </Form>
       </div>
+      <ToastContainer />
     </>
   );
 };
