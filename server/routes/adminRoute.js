@@ -48,6 +48,7 @@ route.post("/displaytv", adminController.displayTv);
 route.post("/displaymouse", adminController.displayMouse);
 route.post("/displaykeyboards", adminController.displayKeyboards);
 route.post("/displaysmartwatches", adminController.displaySmartWatches);
+route.post("/updateratingstar", adminController.updateRatingStar);
 
 
 module.exports = route;

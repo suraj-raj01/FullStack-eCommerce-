@@ -197,6 +197,11 @@ const displaySmartWatches = async(req,res) =>{
     }
 }
 
+const updateRatingStar = async(req,res) =>{
+    console.log(req.body);
+    console.log("HELLO")
+    res.send("OKKK")
+}
 
 module.exports = {
     registration,
@@ -215,5 +220,6 @@ module.exports = {
     displayTv,
     displayMouse,
     displayKeyboards,
-    displaySmartWatches
+    displaySmartWatches,
+    updateRatingStar
 }
