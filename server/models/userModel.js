@@ -7,8 +7,14 @@ const userSchema = new mongoose.Schema({
     pincode:String,
     district:String,
     state:String,
-    useremail:String,
-    password:String
+    useremail:{
+      type:String,
+      require:true
+    },
+    password:{
+      type:String,
+      require:true
+    }
 })
 
 module.exports = mongoose.model("user",userSchema);
