@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useContext } from "react";
+import { myLoginContext } from "../Context/LoginContext";
 
 const TopNav = () => {
   const ProductData = useSelector(state=>state.addtoCart.cart);
   let count = ProductData.length;
-  console.log(ProductData)
+  const navigate = useNavigate();
+  const {isLogedIn, setIsLogedIn} = useContext(myLoginContext);
+
+  const userDashboard=()=>{
+    navigate("/userdashboard")
+  }
+
+  const[name,setname] = useState("")
+  useEffect(()=>{
+    setname(localStorage.getItem("username"))
+  })
   return (
     <>
       <Navbar collapseOnSelect expand="lg" className="navbar">
@@ -44,15 +56,16 @@ const TopNav = () => {
               <Nav.Link as={Link} to="likes">
                 <i class="fas fa-heart"></i> {"Likes"}{" "}
               </Nav.Link>
-              {/* <div className="vr"/> */}
-              <Nav.Link  as={Link} to="login">
+              {isLogedIn?(
+                  <Nav.Link  as={Link} to="userdashboard" >
+                  <i class="fas fa-user"></i> Profile
+                </Nav.Link>
+              ):(
+                <Nav.Link  as={Link} to="login">
                 <i class="fas fa-circle-user"></i> {"SignIn"}
               </Nav.Link>
-              {/* <div className="vr" /> */}
-                {/* <Nav.Link as={Link} to="userdashboard/userprofile">
-                  <i class="fas fa-bars"></i>
-                  {" My Profile"}
-                </Nav.Link> */}
+              )}
+
             </Nav>
           </Navbar.Collapse>
         </Container>

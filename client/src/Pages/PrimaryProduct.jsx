@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { addCartData, addLikeData } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "primereact/rating";
-const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful','Awesome'];
+const desc = ["terrible", "bad", "normal", "good", "wonderful", "Awesome"];
 
 const PrimaryProduct = () => {
   const navigate = useNavigate();
@@ -40,16 +40,16 @@ const PrimaryProduct = () => {
     navigate(`/itemdetails/${id}`);
   };
 
-  const handleRate = async(id) =>{
-    let api=`${BASE_URL}/admin/updaterating`;
+  const handleRate = async (id) => {
+    let api = `${BASE_URL}/admin/updaterating`;
     try {
-      const response = await axios.post(api,{id:id,value:value})
-      setValue(response.data)
+      const response = await axios.post(api, { id: id, value: value });
+      setValue(response.data);
       loadData();
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const res = mydata.map((key) => {
     return (
@@ -106,11 +106,19 @@ const PrimaryProduct = () => {
             {/* <b>Status : {key.status}</b> */}
             <b>
               Ratings : {key.ratings} {desc[key.ratings]}
+              </b>
               <h2></h2>
               <div className=" flex justify-content-center">
-            <Rating value={key.ratings} onChange={(e) => setValue(e.value)} onMouseOver={()=>{handleRate(key._id)}} cancel={false} />
-        </div>
-            </b>
+                <Rating
+                  value={key.ratings}
+                  onChange={(e) => setValue(e.value)}
+                  onClick={() => {
+                    handleRate(key._id);
+                  }}
+                  cancel={false}
+                />
+              </div>
+
             <div id="btns">
               <Button
                 size="sm"

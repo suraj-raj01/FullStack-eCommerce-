@@ -19,15 +19,18 @@ const Register = () => {
     console.log(input);
   };
 
-  const handleSubmit = async() => {
-    const api = `${BASE_URL}/user/registration`;
-    try {
-        const res = await axios.post(api,input);
-        toast.success(res.data);
-        navigate("/login")
-    } catch (error) {
-      toast.success(error);
-    }
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    const api = `${BASE_URL}/user/userregister`;
+       try {
+         const res = await axios.post(api,input);
+         toast.success("Registration successfully completed!!");
+        alert("Registration success")
+        console.log(res.data)
+         navigate("/login")
+       } catch (error) {
+          console.log(error);
+       }
   };
 
   const login = () => {
@@ -38,138 +41,71 @@ const Register = () => {
     <>
       <div id="form">
       <Form>
-      <h4 className="text-center">Registration Form</h4>
-      <br />
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Control type="text" placeholder="Enter name" 
+          name="name" value={input.name} onChange={handleInput}
+          />
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Control type="number" placeholder="Mobile no" 
+          name="mobileno" value={input.mobileno} onChange={handleInput}
+          />
+        </Form.Group>
+      </Row>
 
       <Form.Group className="mb-3" controlId="formGridAddress1">
-        <Form.Control placeholder="Enter your name" 
-              name="name"
-              value={input.name}
-              onChange={handleInput}/>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formGridAddress1">
-        <Form.Control placeholder="Shipping Address" 
-        name="shippingaddress"
-        value={input.shippingaddress}
-        onChange={handleInput}/>
+        <textarea type="text" placeholder="Shipping address" rows='3' style={{width:'100%'}}
+        name="shippingaddress" value={input.shippingaddress} onChange={handleInput}
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formGridAddress2">
         <Form.Control placeholder="Apartment, studio, or floor" 
-        name="apartment"
-        value={input.apartment}
-        onChange={handleInput}/>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formGridAddress2">
-        <Form.Control type="number" placeholder="Contact no" 
-        name="mobileno"
-        value={input.mobileno}
-        onChange={handleInput}/>
+        name="apartment" value={input.apartment} onChange={handleInput}
+        />
       </Form.Group>
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
           <Form.Control placeholder="Pin Code"
-          name="pincode"
-          value={input.pincode}
-          onChange={handleInput}/>
+          name="pincode" value={input.pincode} onChange={handleInput}
+          />
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridState">
+        <Form.Group as={Col} controlId="formGridZip">
           <Form.Control placeholder="District"
-          name="district"
-          value={input.district}
-          onChange={handleInput}/>
+          name="district" value={input.district} onChange={handleInput}
+          />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridZip">
           <Form.Control placeholder="State"
-          name="state"
-          value={input.state}
-          onChange={handleInput}/>
+          name="state" value={input.state} onChange={handleInput}
+          />
         </Form.Group>
       </Row>
-
       <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridEmail">
-          <Form.Control type="email" placeholder="Enter email" 
-          name="useremail"
-          value={input.useremail}
-          onChange={handleInput}/>
+        <Form.Group as={Col} controlId="formGridCity">
+          <Form.Control placeholder="Enter email" type="email"
+          name="useremail" value={input.useremail} onChange={handleInput}
+          />
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridPassword">
-          <Form.Control type="password" placeholder="Password" 
-          name="password"
-          value={input.password}
-          onChange={handleInput}
-        />
+        <Form.Group as={Col} controlId="formGridZip">
+          <Form.Control placeholder="Enter your password" type="password"
+          name="password" value={input.password} onChange={handleInput}
+          />
         </Form.Group>
       </Row>
-      <br />
-      <Button variant="primary" onClick={handleSubmit}>
+
+
+      <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
-      <br /><br />
-      <b onClick={login} style={{ cursor: "pointer" }}>
-            already have an account
-          </b>
     </Form>
-        {/* <Form>
-          <h4 className="text-center">Registration Form</h4>
-          <br />
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              type="text"
-              placeholder="Enter name"
-              name="name"
-              value={input.name}
-              onChange={handleInput}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              name="useremail"
-              value={input.useremail}
-              onChange={handleInput}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              type="number"
-              placeholder="Enter Mobile no"
-              name="mobileno"
-              value={input.mobileno}
-              onChange={handleInput}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={input.password}
-              onChange={handleInput}
-            />
-          </Form.Group>
-          <br />
-
-          <Button variant="primary" onClick={handleSubmit}>
-            Submit
-          </Button>
-          <br />
-          <br />
-          <b onClick={login} style={{ cursor: "pointer" }}>
-            already have an account
-          </b>
-          <br />
-        </Form> */}
+      
       </div>
       <ToastContainer />
     </>

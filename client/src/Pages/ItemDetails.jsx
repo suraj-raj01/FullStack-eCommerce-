@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { addCartData, addLikeData } from "../redux/cartSlice";
 import { Rating } from "primereact/rating";
 import { useNavigate } from "react-router-dom";
-const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+const desc = ["terrible", "bad", "normal", "good", "wonderful","Awesome"];
 import axios from "axios";
 import "../Style/details.css";
 
@@ -33,6 +33,17 @@ const ItemDetails = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+  const handleRate = async (id) => {
+    let api = `${BASE_URL}/admin/updaterating`;
+    try {
+      const response = await axios.post(api, { id: id, value: value });
+      setValue(response.data);
+      loadData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -82,18 +93,21 @@ const ItemDetails = () => {
           <b id="price">
             Price : {mydata.price} {".00 ₹"}
           </b>
-          {/* <b>Status : {mydata.status}</b> */}
           <b>
-            Ratings : {mydata.ratings}
+            Ratings : {mydata.ratings} {desc[mydata.ratings]}
+            </b>
             <h2></h2>
-            <Flex gap="middle" vertical>
-              <Rate
-                tooltips={desc}
-                onChange={setValue}
-                value={mydata.ratings}
-              />
-            </Flex>
-          </b>
+            <div className=" flex justify-content-center">
+                <Rating
+                  value={mydata.ratings}
+                  onChange={(e) => setValue(e.value)}
+                  onMouseOver={() => {
+                    handleRate(mydata._id);
+                  }}
+                  cancel={false}
+                />
+              </div>
+          
           <div id="btns">
             <Button
               size="sm"

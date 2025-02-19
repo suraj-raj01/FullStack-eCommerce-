@@ -62,8 +62,8 @@
 }
 
 #form {
-    width: 600px;
-    margin: 10px auto;
+    width: 550px;
+    margin: 30px auto;
     padding: 15px 25px;
     box-shadow: 0px 5px 15px #c0bebeb4;
     /* border: 1px dotted; */
@@ -152,6 +152,7 @@
     border: 1px dotted #183961;
     height: 60px;
     width: 60px;
+    padding: 5px;
 }
 
 #cards #box #contents {
@@ -179,6 +180,7 @@
 #cards #box #contents #btns {
     margin-top: 10px;
     display: flex;
+    flex-wrap: wrap;
     padding: 10px 0;
     align-content: center;
     justify-content: start;
@@ -242,6 +244,14 @@ Table td i {
     align-items: center;
     justify-content: end;
     gap: 20px;
+}
+
+textarea{
+    border: none;
+    box-shadow: 0 0 1px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
 }
 
 /* Responsive Media Queries */
@@ -387,8 +397,11 @@ Table td i {
     }
     #cards #box #contents{
         text-align: start;
+        font-size: 14px;
     }
-
+    #cards #box #contents #pro-name {
+        font-size: 22px;
+    }
     #hero {
         flex-direction: column;
         gap: 5px;
@@ -412,9 +425,6 @@ Table td i {
 
     Table td {
         font-size: 12px;
-    }
-    #cards #box #contents #btns Button{
-        font-size: 10px;
     }
     #categories #box{
         background-color: #fff;
