@@ -170,19 +170,6 @@ const updateRating = async(req,res) =>{
         res.status(400).json(error)
     }
 }
-
-const loadRelatedData = async(req,res) =>{
-    const{Data} = req.body;
-    console.log(req.body);
-    res.send("OKKKK")
-    try {
-        const relData = await ProductModel.find({"category": { $regex: Data,$options:'i'}});
-        res.status(200).json(relData);
-    } catch (error) {
-        res.status(400).json(error);
-    }
-}
-
 module.exports = {
     productSave,
     displayData,
@@ -200,5 +187,4 @@ module.exports = {
     displayKeyboards,
     displaySmartWatches,
     updateRating,
-    loadRelatedData
 }
