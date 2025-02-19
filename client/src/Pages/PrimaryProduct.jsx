@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addCartData, addLikeData } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "primereact/rating";
+const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful','Awesome'];
 
 const PrimaryProduct = () => {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ const PrimaryProduct = () => {
     try {
       const response = await axios.post(api,{id:id,value:value})
       setValue(response.data)
+      loadData();
     } catch (error) {
       console.log(error);
     }
@@ -103,10 +105,10 @@ const PrimaryProduct = () => {
             </b>
             {/* <b>Status : {key.status}</b> */}
             <b>
-              Ratings : {key.ratings} {"/ 5"}
+              Ratings : {key.ratings} {desc[key.ratings]}
               <h2></h2>
               <div className=" flex justify-content-center">
-            <Rating value={key.ratings} onChange={(e) => setValue(e.value)} onClick={()=>{handleRate(key._id)}} cancel={false} />
+            <Rating value={key.ratings} onChange={(e) => setValue(e.value)} onMouseOver={()=>{handleRate(key._id)}} cancel={false} />
         </div>
             </b>
             <div id="btns">

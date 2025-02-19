@@ -19,8 +19,6 @@ const ItemDetails = () => {
   const [mydata, setMydata] = useState({});
   const [Images, setImages] = useState([]);
 
-  const [relatedData, setRelatedData] = useState([]);
-
   const loadData = async () => {
     const api = `${BASE_URL}/admin/itemdetails`;
     try {
@@ -32,14 +30,9 @@ const ItemDetails = () => {
     }
   };
 
-
   useEffect(() => {
     loadData();
   }, []);
-
-  const seeDetails = (id) => {
-    navigate(`/itemdetails/${id}`);
-  };
 
   return (
     <>
