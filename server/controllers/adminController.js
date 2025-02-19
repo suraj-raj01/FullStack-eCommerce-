@@ -165,7 +165,7 @@ const updateRating = async(req,res) =>{
     const{id,value} = req.body;
     try {
        await ProductModel.findByIdAndUpdate(id,{ratings:value});
-       res.status(200).json("OKKK")
+       res.status(200).json("SUCCESS")
     } catch (error) {
         res.status(400).json(error)
     }
