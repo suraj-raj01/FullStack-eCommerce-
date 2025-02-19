@@ -6,14 +6,14 @@ import { Flex, Rate } from 'antd';
 import { useDispatch } from "react-redux";
 import {addCartData,addLikeData} from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
-
+import { Rating } from "primereact/rating";
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 const Tv = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const[mydata,setMydata] = useState([]);
-  const [value, setValue] = useState(3);
+  const [value, setValue] = useState(0);
   const[status,setStatus] = useState(false);
 
   const loadData = async() =>{
@@ -35,6 +35,17 @@ const Tv = () => {
     },1000);
       setStatus(true);
   },[])
+
+  const handleRate = async (id) => {
+    let api = `${BASE_URL}/admin/updaterating`;
+    try {
+      const response = await axios.post(api, { id: id, value: value });
+      setValue(response.data);
+      loadData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const seeDetails=(id)=>{
     navigate(`/itemdetails/${id}`)
@@ -70,15 +81,20 @@ const Tv = () => {
             <b id="pro-name">{key.name}</b>
             <b id="description">{key.description}</b>
             <b>Brand : {key.brand}</b>
-            {/* <b>Category : {key.category}</b> */}
-            {/* <b>Subcategory : {key.subcategory}</b> */}
             <b id="price">Price : {key.price} {".00 ₹"}</b>
-            {/* <b>Status : {key.status}</b> */}
-            <b>Ratings : {key.ratings} 
+            <b>Ratings : {key.ratings} {desc[key.ratings]}
+              </b>
               <h2></h2>
-              <Flex gap="middle" vertical>
-              <Rate tooltips={desc} onChange={setValue} value={key.ratings} />
-              </Flex></b>
+              <div className=" flex justify-content-center">
+                <Rating
+                  value={key.ratings}
+                  onChange={(e) => setValue(e.value)}
+                  onClick={() => {
+                    handleRate(key._id);
+                  }}
+                  cancel={false}
+                />
+              </div>
             <div id="btns">
               <Button size="sm" variant="success" onClick={()=>
                 {dispatch

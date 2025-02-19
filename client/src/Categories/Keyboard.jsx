@@ -2,19 +2,18 @@ import React, { useEffect, useState } from "react";
 import BASE_URL from "../Config";
 import axios from "axios";
 import Button from "react-bootstrap/Button"
-import { Flex, Rate } from 'antd';
 import { useDispatch } from "react-redux";
 import {addCartData,addLikeData} from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
-
-const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+import { Rating } from "primereact/rating";
+const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful',"Awesome"];
 const Keyboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const[status,setStatus] = useState(false);
-
   const[mydata,setMydata] = useState([]);
-  const [value, setValue] = useState(3);
+  const [value, setValue] = useState(0);
+
   const loadData = async() =>{
     let api = `${BASE_URL}/admin/displaykeyboards`;
     try {
@@ -34,6 +33,17 @@ const Keyboard = () => {
       },1000);
         setStatus(true);
     },[])
+
+    const handleRate = async (id) => {
+      let api = `${BASE_URL}/admin/updaterating`;
+      try {
+        const response = await axios.post(api, { id: id, value: value });
+        setValue(response.data);
+        loadData();
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
   const seeDetails=(id)=>{
     navigate(`/itemdetails/${id}`)
@@ -73,11 +83,18 @@ const Keyboard = () => {
             {/* <b>Subcategory : {key.subcategory}</b> */}
             <b id="price">Price : {key.price} {".00 ₹"}</b>
             {/* <b>Status : {key.status}</b> */}
-            <b>Ratings : {key.ratings} 
+            <b>Ratings : {key.ratings} {desc[key.ratings]} </b>
               <h2></h2>
-              <Flex gap="middle" vertical>
-              <Rate tooltips={desc} onChange={setValue} value={key.ratings} />
-              </Flex></b>
+              <div className=" flex justify-content-center">
+                <Rating
+                  value={key.ratings} 
+                  onChange={(e) => setValue(e.value)}
+                  onClick={() => {
+                    handleRate(key._id);
+                  }}
+                  cancel={false}
+                />
+              </div>
             <div id="btns">
               <Button size="sm" variant="success" onClick={()=>
                 {dispatch

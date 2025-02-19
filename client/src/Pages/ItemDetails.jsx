@@ -4,19 +4,20 @@ import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { Flex, Rate } from "antd";
 import { useDispatch } from "react-redux";
-import { addCartData,addLikeData } from "../redux/cartSlice";
+import { addCartData, addLikeData } from "../redux/cartSlice";
+import { Rating } from "primereact/rating";
 import { useNavigate } from "react-router-dom";
-
-const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+const desc = ["terrible", "bad", "normal", "good", "wonderful","Awesome"];
 import axios from "axios";
 import "../Style/details.css";
 
 const ItemDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [value, setValue] = useState(3);
   const [mydata, setMydata] = useState({});
-  const [Images,setImages] = useState([]);
+  const [Images, setImages] = useState([]);
 
   const loadData = async () => {
     const api = `${BASE_URL}/admin/itemdetails`;
@@ -24,14 +25,25 @@ const ItemDetails = () => {
       const response = await axios.post(api, { id: id });
       setMydata(response.data);
       setImages(response.data.images);
-      console.log(Images)
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     loadData();
   }, []);
+
+  const handleRate = async (id) => {
+    let api = `${BASE_URL}/admin/updaterating`;
+    try {
+      const response = await axios.post(api, { id: id, value: value });
+      setValue(response.data);
+      loadData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -43,17 +55,32 @@ const ItemDetails = () => {
             height="400px"
           />
           <div id="img-option">
-            {Images.map((key)=>{
-              return(
+            {Images.map((key) => {
+              return (
                 <>
-                <img src={`${BASE_URL}/${key[0]}`} alt="!error" height='40px' />
-                <img src={`${BASE_URL}/${key[1]}`} alt="!error" height='40px' />
-                <img src={`${BASE_URL}/${key[2]}`} alt="!error" height='40px' />
-                <img src={`${BASE_URL}/${key[3]}`} alt="!error" height='40px' />
+                  <img
+                    src={`${BASE_URL}/${key[0]}`}
+                    alt="!error"
+                    height="40px"
+                  />
+                  <img
+                    src={`${BASE_URL}/${key[1]}`}
+                    alt="!error"
+                    height="40px"
+                  />
+                  <img
+                    src={`${BASE_URL}/${key[2]}`}
+                    alt="!error"
+                    height="40px"
+                  />
+                  <img
+                    src={`${BASE_URL}/${key[3]}`}
+                    alt="!error"
+                    height="40px"
+                  />
                 </>
-              )
+              );
             })}
-            
           </div>
         </div>
 
@@ -66,18 +93,21 @@ const ItemDetails = () => {
           <b id="price">
             Price : {mydata.price} {".00 ₹"}
           </b>
-          {/* <b>Status : {mydata.status}</b> */}
           <b>
-            Ratings : {mydata.ratings}
+            Ratings : {mydata.ratings} {desc[mydata.ratings]}
+            </b>
             <h2></h2>
-            <Flex gap="middle" vertical>
-              <Rate
-                tooltips={desc}
-                onChange={setValue}
-                value={mydata.ratings}
-              />
-            </Flex>
-          </b>
+            <div className=" flex justify-content-center">
+                <Rating
+                  value={mydata.ratings}
+                  onChange={(e) => setValue(e.value)}
+                  onMouseOver={() => {
+                    handleRate(mydata._id);
+                  }}
+                  cancel={false}
+                />
+              </div>
+          
           <div id="btns">
             <Button
               size="sm"
@@ -136,7 +166,9 @@ const ItemDetails = () => {
         </div>
       </div>
       <br />
-      <h3>Related Products !!</h3>
+      <hr />
+      <h3 align="center">Related Products !!</h3>
+      <hr />
     </>
   );
 };

@@ -2,19 +2,18 @@ import React, { useEffect, useState } from "react";
 import BASE_URL from "../Config";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
-import { Flex, Rate } from "antd";
 import { useDispatch } from "react-redux";
 import { addCartData, addLikeData } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
-
-const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+import { Rating } from "primereact/rating";
+const desc = ["terrible", "bad", "normal", "good", "wonderful", "Awesome"];
 
 const PrimaryProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [value, setValue] = useState(0);
   const [mydata, setMydata] = useState([]);
   const [status, setStatus] = useState(false);
+  const [value, setValue] = useState(0);
 
   const loadData = async () => {
     const api = `${BASE_URL}/admin/displayprimarydata`;
@@ -26,14 +25,6 @@ const PrimaryProduct = () => {
     }
   };
 
-  const handleStar = async(proId)=>{
-    const api = `${BASE_URL}/admin/updateratingstar`;
-    try {
-      const response = await axios.post(api,{proId:proId,value:value});
-    } catch (error) {
-      console.log(error);
-    }
-  }
   useEffect(() => {
     loadData();
   }, []);
@@ -47,6 +38,17 @@ const PrimaryProduct = () => {
 
   const seeDetails = (id) => {
     navigate(`/itemdetails/${id}`);
+  };
+
+  const handleRate = async (id) => {
+    let api = `${BASE_URL}/admin/updaterating`;
+    try {
+      const response = await axios.post(api, { id: id, value: value });
+      setValue(response.data);
+      loadData();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const res = mydata.map((key) => {
@@ -103,12 +105,20 @@ const PrimaryProduct = () => {
             </b>
             {/* <b>Status : {key.status}</b> */}
             <b>
-              Ratings : {value}
+              Ratings : {key.ratings} {desc[key.ratings]}
+              </b>
               <h2></h2>
-              <Flex gap="middle" vertical>
-                <Rate tooltips={desc} onChange={(e)=>{setValue(e.target.value)}} onClick={()=>{handleStar(key._id)}}/>
-              </Flex>
-            </b>
+              <div className=" flex justify-content-center">
+                <Rating
+                  value={key.ratings}
+                  onChange={(e) => setValue(e.value)}
+                  onClick={() => {
+                    handleRate(key._id);
+                  }}
+                  cancel={false}
+                />
+              </div>
+
             <div id="btns">
               <Button
                 size="sm"

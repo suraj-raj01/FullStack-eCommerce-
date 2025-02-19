@@ -1,41 +1,5 @@
-const userModel = require("../models/userModel")
-const bcrypt = require("bcryptjs")
 const ProductModel = require("../models/productModel")
 
-const registration = async (req, res) => {
-    const { name, useremail, mobileno, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 8)
-    try {
-        await userModel.create({
-            username: name,
-            useremail: useremail,
-            mobileno: mobileno,
-            password: hashedPassword
-        })
-        res.status(200).json("Registration successfully completed!!")
-    } catch (error) {
-        res.status(400).json({ mst: "Something went wrong!" })
-    }
-}
-
-const login = async (req, res) => {
-    const { useremail, password } = req.body;
-    try {
-        const User = await userModel.findOne({ useremail: useremail });
-        const isMatch = await bcrypt.compare(password, User.password);
-        if (!User) {
-            res.status(400).json("Invalid user");
-        }
-        else if (!isMatch) {
-            res.status(400).json("Invalid password");
-        }
-        else {
-            res.status(200).json(User);
-        }
-    } catch (error) {
-        res.status(400).json({ msg: "something went wrong!!!" });
-    }
-}
 
 const productSave = async (req, res) => {
     const imgUrls = req.files.map(file => file.path);
@@ -197,15 +161,16 @@ const displaySmartWatches = async(req,res) =>{
     }
 }
 
-const updateRatingStar = async(req,res) =>{
-    console.log(req.body);
-    console.log("HELLO")
-    res.send("OKKK")
+const updateRating = async(req,res) =>{
+    const{id,value} = req.body;
+    try {
+       await ProductModel.findByIdAndUpdate(id,{ratings:value});
+       res.status(200).json("SUCCESS")
+    } catch (error) {
+        res.status(400).json(error)
+    }
 }
-
 module.exports = {
-    registration,
-    login,
     productSave,
     displayData,
     editProductData,
@@ -221,5 +186,5 @@ module.exports = {
     displayMouse,
     displayKeyboards,
     displaySmartWatches,
-    updateRatingStar
+    updateRating,
 }

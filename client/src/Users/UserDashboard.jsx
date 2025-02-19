@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Components/Footer";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button"
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { myLoginContext } from "../Context/LoginContext";
+
 
 const UserDashboard = () => {
-    const navigate = useNavigate();
-    const logout=()=>{
-        navigate("/home")
-    }
+  const navigate = useNavigate();
+  const {isLogedIn, setIsLogedIn} = useContext(myLoginContext);
+
+
+  const logout=()=>{
+    navigate("/home")
+    localStorage.clear();
+    setIsLogedIn(false);
+  }
+  const home=()=>{
+    navigate("/home")
+  }
   return (
     <>
       <div id="header">
@@ -16,8 +27,11 @@ const UserDashboard = () => {
           <h3>User Dashboard</h3>
         </div>
         <div id="box">
+          <Button size="sm" variant="danger" onClick={home}>
+          <i class="fas fa-house"></i> Home
+          </Button>
           <Button size="sm" variant="danger" onClick={logout}>
-            Logout
+          <i class="fas fa-right-to-bracket"></i> Logout
           </Button>
           <i class="fas fa-circle-user"></i>
         </div>

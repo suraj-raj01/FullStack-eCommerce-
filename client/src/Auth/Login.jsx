@@ -1,6 +1,6 @@
 import { message } from "antd";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,13 @@ const Login = () => {
     const navigate = useNavigate();
     const[input,setInput] = useState({});
 
+    useEffect(()=>{
+      if (localStorage.getItem("username"))
+      {
+        navigate("/home");
+      }
+    },[])
+
     const handleInput=(e)=>{
         let name = e.target.name;
         let value = e.target.value;
@@ -19,15 +26,15 @@ const Login = () => {
     }
 
     const handleSubmit=async()=>{
-        let api = `${BASE_URL}/admin/login`;
+        let api = `${BASE_URL}/user/userlogin`;
         try {
             const response = await axios.post(api,input);
-            toast.success('Item added successfully!!');
-            if(response.data.useremail==="admin123@gmail.com")
-            navigate("/admindashboard")
-            
+            toast.success('Login Successfully Completed!!!');
+            localStorage.setItem("token",response.data.token);
+            console.log(response.data.token)
+            navigate("/home")
         } catch (error) {
-          toast.success(error.response.data.msg);
+          toast.error(error.response.data.msg);
         }
     }
 
@@ -36,6 +43,8 @@ const Login = () => {
     }
   return (
     <>
+    <br />
+    <br />
      <div id="form">
      <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -67,6 +76,7 @@ const Login = () => {
       </Form>
       <ToastContainer />
      </div>
+     <br /><br /><br />
     </>
   );
 };
