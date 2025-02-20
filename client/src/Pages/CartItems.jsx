@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import {useNavigate} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,14 @@ const CartItems = () => {
   const navigate= useNavigate();
   const Data = useSelector((state) => state.addtoCart.cart);
   console.log(Data);
+
+  useEffect(()=>{
+    if (!localStorage.getItem("username"))
+    {
+      navigate("/login");
+      alert("Please Login!!")
+    }
+  },[])
 
   const seeDetails = (id) =>{
     navigate(`/itemdetails/${id}`)

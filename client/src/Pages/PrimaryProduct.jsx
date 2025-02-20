@@ -170,7 +170,7 @@ const PrimaryProduct = () => {
                 <i class="fas fa-heart"></i> Likes
               </Button>
               <Button size="sm" variant="success">
-                Shop Now
+              <i class="fas fa-bag-shopping"></i> Shop Now
               </Button>
               <Button
                 size="sm"
@@ -179,7 +179,7 @@ const PrimaryProduct = () => {
                   seeDetails(key._id);
                 }}
               >
-                See Details
+               <i class="fas fa-circle-info"></i> See Details
               </Button>
             </div>
           </div>

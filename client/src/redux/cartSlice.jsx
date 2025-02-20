@@ -62,7 +62,5 @@ const counterSlice = createSlice({
   
 },
 );
-
-
 export const { addCartData, itemInc, itemDec, itemDel,addLikeData,itemDislike } = counterSlice.actions;
 export default counterSlice.reducer;

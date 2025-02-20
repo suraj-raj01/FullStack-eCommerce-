@@ -5,12 +5,20 @@ import Button from "react-bootstrap/Button"
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { myLoginContext } from "../Context/LoginContext";
+import { message } from "antd";
 
 
 const UserDashboard = () => {
   const navigate = useNavigate();
   const {isLogedIn, setIsLogedIn} = useContext(myLoginContext);
 
+  useEffect(()=>{
+        if (!localStorage.getItem("username"))
+        {
+          navigate("/home");
+          message.error("Login Please!!!")
+        }
+      },[])
 
   const logout=()=>{
     navigate("/home")

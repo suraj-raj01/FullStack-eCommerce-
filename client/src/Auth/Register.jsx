@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -11,6 +11,13 @@ import { toast,ToastContainer } from "react-toastify";
 const Register = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState({});
+
+  useEffect(()=>{
+    if (localStorage.getItem("username"))
+    {
+      navigate("/home");
+    }
+  },[])
 
   const handleInput = (e) => {
     let name = e.target.name;
