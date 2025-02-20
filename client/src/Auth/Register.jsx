@@ -48,6 +48,8 @@ const Register = () => {
     <>
       <div id="form">
       <Form>
+        <h4 className="text-center">User Registration Form</h4>
+        <br />
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Control type="text" placeholder="Enter name" 
@@ -69,7 +71,7 @@ const Register = () => {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formGridAddress2">
-        <Form.Control placeholder="Apartment, studio, or floor" 
+        <Form.Control placeholder="Apartment, Building Name" 
         name="apartment" value={input.apartment} onChange={handleInput}
         />
       </Form.Group>
@@ -95,13 +97,13 @@ const Register = () => {
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
-          <Form.Control placeholder="Enter email" type="email"
+          <Form.Control placeholder="Email" type="email"
           name="useremail" value={input.useremail} onChange={handleInput}
           />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridZip">
-          <Form.Control placeholder="Enter your password" type="password"
+          <Form.Control placeholder="Password" type="password"
           name="password" value={input.password} onChange={handleInput}
           />
         </Form.Group>
@@ -111,8 +113,11 @@ const Register = () => {
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
+      <br />
+        <br />
+        <b onClick={login} style={{cursor:'pointer'}}>aleready have an account</b>
+        <br />
     </Form>
-      
       </div>
       <ToastContainer />
     </>
