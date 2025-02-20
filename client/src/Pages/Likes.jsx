@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Table from "react-bootstrap/Table";
 import {useNavigate} from "react-router-dom"
 import {useDispatch,useSelector } from "react-redux";
@@ -8,6 +8,15 @@ import BASE_URL from "../Config";
 const Likes = () => {
   const dispatch = useDispatch();
   const navigate =  useNavigate();
+
+  useEffect(()=>{
+    if (!localStorage.getItem("username"))
+    {
+      navigate("/login");
+      alert("Please Login first!!!")
+    }
+  },[])
+
   const Data = useSelector((state) => state.addtoLike.likes);
   
   const seeDetails=(id)=>{

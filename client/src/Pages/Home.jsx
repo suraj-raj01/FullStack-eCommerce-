@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import Categories from "../Categories/Categories";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
 import ProductCategory from "../Components/ProductCategory";
 import Crousel from "../Components/Crousel";
 import { useContext } from "react";
 import { myLoginContext } from "../Context/LoginContext";
 import axios from "axios";
 import BASE_URL from "../Config";
+import Form from 'react-bootstrap/Form'
 
 const Home = () => {
   const { setIsLogedIn } = useContext(myLoginContext);
@@ -41,7 +43,19 @@ const Home = () => {
       <Categories />
       <hr />
       <div id="hero">
-        <div id="filter"></div>
+        <div id="filter">
+        {/* <Form.Select>
+        <option>Filter Products</option>
+        <option>Laptops</option>
+        <option>Mobiles</option>
+        <option>TV</option>
+        <option>Keyboards</option>
+        <option>Mouse</option>
+        <option>Watches</option>
+        <option>Smart Watches</option>
+      </Form.Select> */}
+        {/*  */}
+        </div>
         <div id="filterdata">
           <Outlet />
         </div>

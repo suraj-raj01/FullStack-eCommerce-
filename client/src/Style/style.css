@@ -212,6 +212,17 @@
     border-right-color: #183961;
     border-top-color: #183961;
     border-top-right-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: center;
+}
+#hero #filter a{
+    width: 250px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 5px;
 }
 
 #hero #filterdata {
@@ -238,7 +249,7 @@ Table td i {
 
 #checkout-btn {
     padding-top: 10px;
-    padding-right: 20px;
+    padding-right: 15px;
     padding-bottom: 10px;
     display: flex;
     align-items: center;

@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 8000;
 const Database = process.env.DATABASE_URL;
 const adminRoute = require("./routes/adminRoute")
 const userRoutes = require("./routes/userRoute")
+const paymentRoute = require("./routes/paymentRoute")
 
 mongoose.connect(Database).then(()=>{
     console.log("Database Connected Successfull !!");
@@ -20,6 +21,7 @@ app.use("/uploads",express.static("uploads"));
 
 app.use("/admin",adminRoute);
 app.use("/user",userRoutes);
+app.use("/api/payment/",paymentRoute);
 
 app.listen(PORT,()=>{
     console.log(`Server run on port ${PORT}`);

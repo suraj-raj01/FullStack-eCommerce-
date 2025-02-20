@@ -130,8 +130,8 @@ const Tv = () => {
                   qnty:1
                   })
                 )}}><i class="fas fa-heart"></i> Likes</Button>
-              <Button size="sm" variant="success">Shop Now</Button>
-              <Button size="sm" variant="success" onClick={()=>{seeDetails(key._id)}}>See Details</Button>
+              <Button size="sm" variant="success"><i class="fas fa-bag-shopping"></i> Shop Now</Button>
+              <Button size="sm" variant="success" onClick={()=>{seeDetails(key._id)}}><i class="fas fa-circle-info"></i> See Details</Button>
             </div>
           </div>
         </div>

@@ -12,8 +12,8 @@ const Footer = () => {
             <i class="fab fa-linkedin"></i>
             <i class="fab fa-twitter-square"></i>
             </div>
-            <b>Food Delivery </b><br />
-            <b>Everything is reserved!! by food delivery Web</b><br />
+            <b>SHOP CART </b><br />
+            <b>Everything is reserved!! by shopcart Web</b><br />
             <b>www.fooddelivery.com</b>
         </div>
     </>

@@ -60,7 +60,7 @@ const userProfileShow=async(req,res)=>{
         const Data = await UserModel.findById(id);
         res.status(200).send(Data);
     } catch (error) {
-        res.state(400).send({msg:"Something went wrong!!"})
+        res.status(400).send({msg:"Something went wrong!!"})
     }
 }
 
