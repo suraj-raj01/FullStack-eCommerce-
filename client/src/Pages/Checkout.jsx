@@ -91,7 +91,7 @@ const Checkout = () => {
       key : "rzp_test_beWpubWRnZoYkT",
       amount: data.amount,
       currency: data.currency,
-      name: myProList,
+      name: data.name,
       description: "Test",
       image:myProImg,
       order_id: data.id,
@@ -114,8 +114,7 @@ const Checkout = () => {
   const handlePay = async () => {
     try {
       const orderURL = `${BASE_URL}/api/payment/orders`;
-      const {data} = await axios.post(orderURL,{amount: totalAmount});
-      console.log(data);
+      const {data} = await axios.post(orderURL,{amount:totalAmount,name:mydata.name});
       initPay(data.data);
     } catch (error) {
       console.log(error);

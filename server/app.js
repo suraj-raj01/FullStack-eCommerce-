@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 8000;
 const Database = process.env.DATABASE_URL;
 const adminRoute = require("./routes/adminRoute")
 const userRoutes = require("./routes/userRoute")
+const productRoutes = require("./routes/productRoute")
 const paymentRoute = require("./routes/paymentRoute")
 
 mongoose.connect(Database).then(()=>{
@@ -20,6 +21,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use("/uploads",express.static("uploads"));
 
 app.use("/admin",adminRoute);
+app.use("/product",productRoutes);
 app.use("/user",userRoutes);
 app.use("/api/payment/",paymentRoute);
 

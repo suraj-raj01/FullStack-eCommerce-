@@ -30,7 +30,8 @@
     padding: 8px;
     width: 80%;
     background-color: #eceaeaed;
-    text-align: center;
+    text-align: start;
+    padding-left: 30px;
     margin: 15px auto;
     font-weight: bold;
     border-radius: 5px;
@@ -148,7 +149,7 @@
 #profile b{
     padding: 5px;
     border: none;
-    box-shadow: 0 0 1px;
+    box-shadow: 0 0 1px #c1c0c0e8;
     width: 100%;
 }
 
@@ -229,5 +230,19 @@
     }
     Button{
         font-size: 6px;
+    }
+    #header{
+        flex-direction: column;
+        align-items: start;
+        height: 12vh;
+    }
+    #header #box{
+        justify-content: center;
+        text-align: center;
+        align-content: center;
+        padding: 5px 0px;
+    }
+    #header #box #user-icon{
+        font-size: 28px;
     }
 }

@@ -34,6 +34,7 @@ const UserProfile = () => {
   },[])
   return (
     <>
+    <br />
     <div id="profile">
     <b><i class="fas fa-user"></i> Name : {mydata.name}</b>
     <b><i class="fas fa-mobile-screen-button"></i> Mobile : {mydata.mobileno}</b>

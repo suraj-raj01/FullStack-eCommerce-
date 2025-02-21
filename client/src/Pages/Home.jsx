@@ -19,7 +19,6 @@ const Home = () => {
     try {
       const response = await axios.post(api,null, {headers: {"Authorization":token},
       });
-      console.log(response.data);
       localStorage.setItem("userid", response.data._id);
       localStorage.setItem("username", response.data.name);
       setIsLogedIn(true);
