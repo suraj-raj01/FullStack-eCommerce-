@@ -23,7 +23,6 @@ const UserProfile = () => {
     try {
       const response = await axios.post(api,{id:myid});
       setMyData(response.data);
-      console.log(response.data);
     } catch (error) {
       toast.error(error.response.data.msg);
     }

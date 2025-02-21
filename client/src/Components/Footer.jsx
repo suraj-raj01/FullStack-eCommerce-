@@ -13,8 +13,8 @@ const Footer = () => {
             <i class="fab fa-twitter-square"></i>
             </div>
             <b>SHOP CART </b><br />
-            <b>Everything is reserved!! by shopcart Web</b><br />
-            <b>www.fooddelivery.com</b>
+            <b>Everything is reserved!! by shopcart.com.in</b><br />
+            <b>www.shopcart.com</b>
         </div>
     </>
   )

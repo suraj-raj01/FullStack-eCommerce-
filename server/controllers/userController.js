@@ -1,6 +1,7 @@
 const UserModel = require("../models/userModel")
 const bcrypt = require('bcryptjs');
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const CustomerModel = require("../models/customerModel")
 
 const registration = async (req, res) => {
     const { name, shippingaddress, apartment, mobileno, pincode, district, state, useremail, password } = req.body;
@@ -64,9 +65,44 @@ const userProfileShow=async(req,res)=>{
     }
 }
 
+const customerRecords=async(req,res)=>{
+    try {
+        const Data = await CustomerModel.find();
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).json({msg:"Something went wrong!!!"})
+    }
+}
+
+const purchasedItems = async(req,res)=>{
+    const{userid} = req.body;
+    try {
+        const Data = await CustomerModel.find({userid:userid}).populate('userid');
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).json({msg:"Something went wrong!!!"});
+    }
+}
+
+const itemReceived = async(req,res)=>{
+    const{id} = req.body;
+    try {
+        const Data = await CustomerModel.findByIdAndUpdate(id,{
+            status:"success"
+        });
+        console.log(Data);
+        res.status(200).json("Item Received successfully")
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
 module.exports = {
     registration,
     userLogin,
     userProfile,
-    userProfileShow
+    userProfileShow,
+    customerRecords,
+    purchasedItems,
+    itemReceived
 }

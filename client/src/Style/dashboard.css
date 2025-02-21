@@ -39,23 +39,14 @@
 
 /* Content Section */
 #content-data {
-    width: 60%;
+    width: 80%;
     height: auto;
     background-color: #fff;
     padding: 10px;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
-/* Advertisement Section */
-#ads {
-    margin-top: 10px;
-    width: 15%;
-    height: 80vh;
-    background-color: white;
-    text-align: center;
-    align-content: center;
-    border-radius: 2px;
-    box-shadow: -2px 0px 10px #e4e3e3b2;
-}
 
 /* Form Section */
 #insert-form {
@@ -151,6 +142,21 @@
     border: none;
     box-shadow: 0 0 1px #c1c0c0e8;
     width: 100%;
+}
+
+.customer-record th{
+    font-weight: bold;
+}
+#customer-records td{
+    font-size: 14px;
+    text-align: start;
+    font-weight: 500;
+}
+
+#search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Responsive Design */

@@ -53,6 +53,16 @@ const ShopNow = () => {
     navigate(`/itemdetails/${id}`);
   };
 
+  const data1 = {
+    name:mydata.name,
+    mobile:mydata.mobileno,
+    email:mydata.useremail,
+    defaultImg:myProImg,
+    shippingaddress:mydata.shippingaddress,
+    productname:myProList,
+    userid:myid
+  }
+
   const initPay = (data) => {
     const options = {
       key : "rzp_test_beWpubWRnZoYkT",
@@ -85,7 +95,7 @@ const ShopNow = () => {
     }else{
     try {
       const orderURL = `${BASE_URL}/api/payment/orders`;
-      const {data} = await axios.post(orderURL,{amount: totalAmount});
+      const {data} = await axios.post(orderURL,{amount: totalAmount,...data1});
       console.log(data);
       initPay(data.data);
     } catch (error) {

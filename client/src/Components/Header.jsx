@@ -6,6 +6,9 @@ const Header = () => {
   const logout=()=>{
     navigate("/home")
   }
+  const home=()=>{
+    navigate("/home")
+  }
   return (
     <>
         <div id="header">
@@ -13,7 +16,8 @@ const Header = () => {
                 <h3>Admin Dashboard</h3>
             </div>
             <div id="box">
-            <Button size="sm" variant="danger" onClick={logout}>Logout</Button>
+            <Button size="sm" variant="danger" onClick={home}><i class="fas fa-house"></i> Home</Button>
+            <Button size="sm" variant="danger" onClick={logout}><i class="fas fa-arrow-right-from-bracket"></i> Logout</Button>
             <i class="fas fa-circle-user"></i>
             </div>
         </div>
