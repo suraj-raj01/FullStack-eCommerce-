@@ -6,16 +6,17 @@ import About from "./Pages/About";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import AdminDashboard from "./Admin/AdminDashboard";
+import AdminProfile from "./Admin/AdminProfile";
 import ProductInsert from "./Admin/ProductInsert";
+import Update from "./Admin/Update";
+import PrimaryProduct from "./Pages/PrimaryProduct";
+import CustomerRecord from "./Admin/CustomerRecord";
 import UserDashboard from "./Users/UserDashboard";
 import UserProfile from "./Users/UserProfile";
 import Purchases from "./Users/Purchases";
 import CartItems from "./Pages/CartItems";
-import Update from "./Admin/Update";
-import AdminProfile from "./Admin/AdminProfile";
 import EditProductData from "./Admin/EditProductData";
 import ItemDetails from "./Pages/ItemDetails";
-import PrimaryProduct from "./Pages/PrimaryProduct";
 import Laptops from "./Categories/Laptops";
 import Mobiles from "./Categories/Mobiles";
 import Tv from "./Categories/Tv";
@@ -60,6 +61,7 @@ const App = () => {
             <Route path="insert" element={<ProductInsert/>}/>
             <Route path="update" element={<Update/>}/>
             <Route path="editproductdata/:id" element={<EditProductData/>}/>
+            <Route path="customerrecord" element={<CustomerRecord/>}/>
           </Route>
           <Route path="/userdashboard" element={<UserDashboard/>}>
             <Route index element={<UserProfile/>}/>

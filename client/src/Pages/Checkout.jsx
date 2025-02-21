@@ -86,6 +86,16 @@ const Checkout = () => {
     );
   });
 
+  const data1 = {
+    name:mydata.name,
+    mobile:mydata.mobileno,
+    email:mydata.useremail,
+    defaultImg:myProImg,
+    shippingaddress:mydata.shippingaddress,
+    productname:myProList,
+    userid:myid
+  }
+
   const initPay = (data) => {
     const options = {
       key : "rzp_test_beWpubWRnZoYkT",
@@ -114,7 +124,7 @@ const Checkout = () => {
   const handlePay = async () => {
     try {
       const orderURL = `${BASE_URL}/api/payment/orders`;
-      const {data} = await axios.post(orderURL,{amount:totalAmount,name:mydata.name});
+      const {data} = await axios.post(orderURL,{amount:totalAmount,...data1});
       initPay(data.data);
     } catch (error) {
       console.log(error);
