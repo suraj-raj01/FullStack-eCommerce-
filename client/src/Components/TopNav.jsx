@@ -27,7 +27,7 @@ const TopNav = () => {
       <Navbar collapseOnSelect expand="lg" className="navbar">
         <Container>
           <Navbar.Brand as={Link} to="home" style={{fontWeight:'bold'}}> 
-            ShopingCart
+           <i class="fab fa-shopify"></i> ShopingCart
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

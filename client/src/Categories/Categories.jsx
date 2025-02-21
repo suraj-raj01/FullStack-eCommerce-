@@ -38,7 +38,7 @@ const Categories = () => {
             <div id="box" onClick={mouse}><i class="fas fa-computer-mouse"></i> Mouse</div>
             <div id="box" onClick={smartwatch}><i class="fas fa-clock"></i> SmartWatch</div>
             <div id="box" onClick={watch}><i class="fas fa-stopwatch"></i> Watches</div>
-            <div id="box" onClick={laptops}>Categories</div>
+            {/* <div id="box" onClick={laptops}>Categories</div> */}
         </div>
     </>
   )

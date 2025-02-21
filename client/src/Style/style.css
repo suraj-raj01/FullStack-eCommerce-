@@ -265,6 +265,54 @@ textarea{
     outline: none;
 }
 
+/* Responsive Styles for 1024px to 1440px */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .navbar {
+        padding: 20px;
+    }
+
+    #form {
+        width: 600px;
+    }
+
+    #categories {
+        gap: 30px;
+    }
+
+    #categories #box {
+        width: 220px;
+        height: 45px;
+    }
+
+    #cards {
+        gap: 30px;
+    }
+
+    #cards #box {
+        flex-direction: row;
+    }
+
+    #cards #box #images {
+        width: 35%;
+    }
+
+    #cards #box #contents {
+        width: 55%;
+    }
+
+    #hero {
+        gap: 30px;
+    }
+
+    #hero #filter {
+        width: 20%;
+    }
+
+    #hero #filterdata {
+        width: 80%;
+    }
+}
+
 /* Responsive Media Queries */
 @media screen and (max-width: 1024px) {
     #navbar a {
@@ -305,6 +353,9 @@ textarea{
 
     #hero #filterdata {
         width: 100%;
+    }
+    #crousel img{
+        height: 60vh;
     }
 }
 
@@ -357,6 +408,9 @@ textarea{
 
     #cart-count {
         font-size: 10px;
+    }
+    #crousel img{
+        height: 50vh;
     }
 }
 
@@ -448,4 +502,7 @@ textarea{
         font-size: 12px;
         width: 40%;
     }  
+    #crousel img{
+        height: 40vh;
+    }
 }

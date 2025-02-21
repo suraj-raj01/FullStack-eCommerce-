@@ -41,16 +41,16 @@ const UserDashboard = () => {
           <Button size="sm" variant="danger" onClick={logout}>
           <i class="fas fa-right-to-bracket"></i> Logout
           </Button>
-          <i class="fas fa-circle-user"></i>
+          <i class="fas fa-circle-user" id="user-icon"></i>
         </div>
       </div>
       <div id="dashboard">
         <div id="nav">
           <Nav.Link as={Link} to="userprofile">
-            Profile
+          <i class="fas fa-user"></i> Profile
           </Nav.Link>
-          <Nav.Link as={Link} to="#">
-            Display
+          <Nav.Link as={Link} to="purchases">
+          <i class="fas fa-bag-shopping"></i> Purchases
           </Nav.Link>
         </div>
         <div id="content-data">

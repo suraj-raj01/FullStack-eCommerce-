@@ -9,6 +9,7 @@ import AdminDashboard from "./Admin/AdminDashboard";
 import ProductInsert from "./Admin/ProductInsert";
 import UserDashboard from "./Users/UserDashboard";
 import UserProfile from "./Users/UserProfile";
+import Purchases from "./Users/Purchases";
 import CartItems from "./Pages/CartItems";
 import Update from "./Admin/Update";
 import AdminProfile from "./Admin/AdminProfile";
@@ -24,6 +25,7 @@ import Likes from "./Pages/Likes";
 import Checkout from "./Pages/Checkout";
 import SmartWatches from "./Categories/SmartWatches";
 import Watches from "./Categories/Watches";
+import ShopNow from "./Pages/ShopNow";
 
 const App = () => {
   return (
@@ -50,6 +52,7 @@ const App = () => {
             <Route path="cartitems" element={<CartItems/>}/>
             <Route path="itemdetails/:id" element={<ItemDetails/>}/>
             <Route path="checkout" element={<Checkout/>}/>
+            <Route path="shopnow/:id" element={<ShopNow/>}/>
           </Route>
           <Route path="/admindashboard" element={<AdminDashboard/>}>
             <Route index element={<AdminProfile/>}/>
@@ -61,6 +64,7 @@ const App = () => {
           <Route path="/userdashboard" element={<UserDashboard/>}>
             <Route index element={<UserProfile/>}/>
             <Route path="userprofile" element={<UserProfile/>}/>
+            <Route path="purchases" element={<Purchases/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
