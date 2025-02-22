@@ -63,7 +63,7 @@ const PrimaryProduct = () => {
             <img
               src={`${BASE_URL}/${key.defaultImage}`}
               alt=""
-              width="320px"
+              width="85%"
               onClick={() => {
                 seeDetails(key._id);
               }}

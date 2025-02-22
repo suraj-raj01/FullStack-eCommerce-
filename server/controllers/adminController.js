@@ -161,6 +161,15 @@ const displaySmartWatches = async(req,res) =>{
     }
 }
 
+const displayWatches = async(req,res) =>{
+    try {
+        const Data = await ProductModel.find({category:"Watch"});
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).josn({msg:"Something went wrong!!"})
+    }
+}
+
 const updateRating = async(req,res) =>{
     const{id,value} = req.body;
     try {
@@ -186,5 +195,6 @@ module.exports = {
     displayMouse,
     displayKeyboards,
     displaySmartWatches,
+    displayWatches,
     updateRating,
 }

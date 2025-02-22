@@ -8,6 +8,5 @@ route.post("/profile",userController.userProfile)
 route.post("/userprofileshow",userController.userProfileShow)
 route.get("/customerrecords",userController.customerRecords)
 route.post("/purchaseditems",userController.purchasedItems)
-route.post("/itemreceived",userController.itemReceived)
 
 module.exports = route;

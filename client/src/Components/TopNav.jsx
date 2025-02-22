@@ -32,12 +32,8 @@ const TopNav = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="home">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="about">
-                About
-              </Nav.Link>
+              <Nav.Link as={Link} to="home">Home</Nav.Link>
+              <Nav.Link as={Link} to="about">About</Nav.Link>
             <NavDropdown title="Category" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="home/laptops">Laptops</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="home/mobiles">Mobiles</NavDropdown.Item>
@@ -45,7 +41,9 @@ const TopNav = () => {
               <NavDropdown.Item as={Link} to="home/keyboard">Keyboard</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="home/mouse">Mouse</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="home/watches">Watches</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="home/smartwatches">Smart Watches</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link as={Link} to="services">Services</Nav.Link>
             </Nav>
 
             <Nav>

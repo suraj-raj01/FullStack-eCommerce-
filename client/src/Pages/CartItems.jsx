@@ -37,8 +37,8 @@ const CartItems = () => {
               onClick={()=>{seeDetails(key.id)}}
             />
           </td>
-          <td>{key.name}</td>
-          <td>{key.description}</td>
+          <td className="text-start">{key.name}</td>
+          <td className="text-start">{key.description}</td>
           <td style={{width:'120px'}}>{key.price * key.qnty}{".00 ₹"}</td>
           <td>
             <div style={{ display: "flex",alignItems:'center',justifyContent:'center', gap: "10px" }}>
@@ -53,11 +53,14 @@ const CartItems = () => {
               ></i>
             </div>
           </td>
-          <td>
+          <td style={{width:'120px'}}>
+            <Button size="sm" variant="danger" onClick={() => {dispatch(itemDel({id:key.id}))}}>
             <i
+              style={{color:'white'}}
               class="fas fa-trash"
-              onClick={() => {dispatch(itemDel({id:key.id}))}}
-            ></i>
+              
+            ></i> Remove</Button>
+            
           </td>
         </tr>
       </>
@@ -75,7 +78,7 @@ const CartItems = () => {
             <th>Description</th>
             <th className="text-center">Price</th>
             <th>Quantity</th>
-            <th>Remove</th>
+            <th className="text-center">Remove</th>
           </tr>
         </thead>
         <tbody>{ans}</tbody>

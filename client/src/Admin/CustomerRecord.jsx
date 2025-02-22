@@ -36,9 +36,7 @@ const CustomerRecord = () => {
                 <td style={{width:'160px'}}>{key.shippingaddress}</td>
                 <td style={{width:'110px'}}>{date1[0]}</td>
                 <td>
-                    {key.status!='normal'?(
-                        <Button size='sm'>Pending</Button>
-                    ):(<Button size='sm' disabled>Received</Button>)}
+                  <img src={key.defaultImg} alt="" height='80px' width='90px'/>
                 </td>
             </tr>
         </>
@@ -60,7 +58,7 @@ const CustomerRecord = () => {
             <th>Customer Email</th>
             <th>Address</th>
             <th>Date</th>
-            <th>Delivery Status</th>
+            <th>Product Image</th>
            </tr>
         </thead>
         <tbody>

@@ -139,7 +139,7 @@ const ShopNow = () => {
 
         <div id="purchase-items">
           <h3 className="text-start ">
-            Your Selected <i class="fas fa-circle-check" style={{color:'green'}}></i> Items
+            Your Purchased <i class="fas fa-circle-check" style={{color:'green'}}></i> Items
           </h3>
           <Table className="mt-2" striped bordered hover responsive>
             <thead>
@@ -156,8 +156,8 @@ const ShopNow = () => {
                   <img
                     src={`${BASE_URL}/${shopItem.defaultImage}`}
                     alt=""
-                    height="130px"
-                    width='150px'
+                    height="110px"
+                    width='120px'
                     onClick={() => {
                       seeDetails(shopItem._id);
                     }}

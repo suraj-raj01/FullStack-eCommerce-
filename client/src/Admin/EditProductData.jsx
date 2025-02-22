@@ -88,7 +88,7 @@ const EditProductData = () => {
   return (
     <>
       <div id="insert-form" className="mt-2" >
-      <h4 className="text-center p-2">Insert Data Form</h4>
+      <h4 className="text-center p-2">Update Data Form</h4>
       <Form onSubmit={handleSubmit}>
         <div id="box">
         <Form.Group className="mb-3">

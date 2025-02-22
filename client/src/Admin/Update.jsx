@@ -41,7 +41,7 @@ const Update = () => {
         <b>Status : {key.status}</b>
         <b>Rating : {key.ratings}</b>
         <div id='dashboard-btns'>
-          <Button size='sm' variant='info' onClick={()=>{editData(key._id)}}><i class="fas fa-pen-to-square"></i> Edit Data</Button>
+          <Button size='sm' variant='primary' onClick={()=>{editData(key._id)}}><i class="fas fa-pen-to-square"></i> Edit Data</Button>
           <Button size='sm' variant='danger' onClick={()=>{deleteData(key._id)}}><i class="fas fa-trash"></i> Delete</Button>
           {key.status=="normal"?(
             <>
