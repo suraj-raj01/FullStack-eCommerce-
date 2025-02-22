@@ -50,7 +50,7 @@ const UserDashboard = () => {
           <i class="fas fa-user"></i> Profile
           </Nav.Link>
           <Nav.Link as={Link} to="purchases">
-          <i class="fas fa-bag-shopping"></i> Purchased
+          <i class="fas fa-bag-shopping"></i> Your Orders
           </Nav.Link>
         </div>
         <div id="content-data">

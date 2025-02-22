@@ -42,9 +42,7 @@ const Purchases = () => {
     return(
       <>
         <tr>
-          <td style={{width:'140px'}}>
-            <img src={key.defaultImg} alt="" height='70px' width='80px'/>
-          </td>
+          
           <td style={{textAlign:'start'}}>{key.productname}</td>
           <td style={{width:'130px',textAlign:'start'}}>{key.amount}{".00 ₹"}</td>
           <td style={{width:'130px'}}>{date1[0]}</td>
@@ -66,11 +64,10 @@ const Purchases = () => {
     <Table responsive striped hover bordered>
         <thead>
            <tr class='customer-record'>
-           <th>Product Image</th>
             <th>Product Name</th>
             <th>Price</th>
-            <th>Date</th>
-            <th>Email</th>
+            <th>Order Date</th>
+            <th>Customer Email</th>
             <th style={{width:'140px'}}>Delivery Status</th>
            </tr>
         </thead>
