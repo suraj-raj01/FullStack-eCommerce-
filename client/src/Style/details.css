@@ -6,6 +6,8 @@
     font-weight: normal;
     font-style: normal;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #7b7a7a92 #fff;
 }
 
 /* Item Details Section */

@@ -45,10 +45,10 @@ const CustomerRecord = () => {
 
   return (
     <>
-    <div id="search">
+    {/* <div id="search">
         <h3>Search Information</h3>
         <input type="text" placeholder='search ....' />
-    </div>
+    </div> */}
     <Table responsive striped hover bordered>
         <thead>
            <tr class='customer-record'>
