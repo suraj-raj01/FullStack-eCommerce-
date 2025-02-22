@@ -158,6 +158,10 @@
     align-items: center;
     justify-content: space-between;
 }
+input{
+    padding: 5px;
+    width: 280px;
+}
 
 /* Responsive Design */
 @media (max-width: 1440px) {
