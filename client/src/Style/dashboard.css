@@ -40,7 +40,6 @@
 /* Content Section */
 #content-data {
     width: 80%;
-    height: auto;
     background-color: #fff;
     padding: 10px;
     height: 80vh;
@@ -92,7 +91,7 @@
 /* Dashboard Display */
 #dashboard-display {
     height: 79vh;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     align-items: center;
     justify-content: center;
 }
@@ -169,7 +168,7 @@ input{
         width: 25%;
     }
     #content-data {
-        width: 65%;
+        width: 75%;
     }
     #dashboard-image{
         width: 25%;
@@ -191,7 +190,7 @@ input{
         font-size: 14px;
     }
     #content-data {
-        width: 65%;
+        width: 75%;
     }
     #dashboard-image, #dashboard-data {
         width: 100%;

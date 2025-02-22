@@ -84,25 +84,11 @@ const purchasedItems = async(req,res)=>{
     }
 }
 
-const itemReceived = async(req,res)=>{
-    const{id} = req.body;
-    try {
-        const Data = await CustomerModel.findByIdAndUpdate(id,{
-            status:"success"
-        });
-        console.log(Data);
-        res.status(200).json("Item Received successfully")
-    } catch (error) {
-        res.status(400).json(error);
-    }
-}
-
 module.exports = {
     registration,
     userLogin,
     userProfile,
     userProfileShow,
     customerRecords,
-    purchasedItems,
-    itemReceived
+    purchasedItems
 }

@@ -1,4 +1,3 @@
-import { message } from "antd";
 import axios from "axios";
 import React, { useState ,useEffect} from "react";
 import Button from "react-bootstrap/Button";
@@ -22,16 +21,15 @@ const Login = () => {
         let name = e.target.name;
         let value = e.target.value;
         setInput((values)=>({...values,[name]:value}));
-        console.log(input);
     }
 
     const handleSubmit=async()=>{
         let api = `${BASE_URL}/user/userlogin`;
         try {
             const response = await axios.post(api,input);
-            toast.success('Login Successfully Completed!!!');
             localStorage.setItem("token",response.data.token);
             console.log(response.data.token)
+            toast.success(response.data);
             navigate("/home")
         } catch (error) {
           toast.error(error.response.data.msg);
@@ -39,7 +37,7 @@ const Login = () => {
     }
 
     const register=()=>{
-        navigate("/register")
+        navigate("/register");
     }
   return (
     <>
@@ -74,8 +72,8 @@ const Login = () => {
         <b onClick={register} style={{cursor:'pointer'}}>don't have an account</b>
         <br />
       </Form>
-      <ToastContainer />
      </div>
+      <ToastContainer />
      <br /><br /><br />
     </>
   );

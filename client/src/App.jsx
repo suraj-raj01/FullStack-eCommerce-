@@ -3,6 +3,7 @@ import { BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from "./Pages/Home";
 import LayOut from "./LayOut";
 import About from "./Pages/About";
+import Services from "./Pages/Services";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import AdminDashboard from "./Admin/AdminDashboard";
@@ -48,6 +49,7 @@ const App = () => {
             </Route>
             <Route path="likes" element={<Likes/>}/>
             <Route path="about" element={<About/>}/>
+            <Route path="services" element={<Services/>}/>
             <Route path="login" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
             <Route path="cartitems" element={<CartItems/>}/>

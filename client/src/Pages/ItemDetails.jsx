@@ -228,7 +228,8 @@ const ItemDetails = () => {
             id="orgImg"
             src={`${BASE_URL}/${mydata.defaultImage}`}
             alt=""
-            height="400px"
+            height='300px'
+            width='300px'
           />
           <div id="img-option">
             {Images.map((key) => {

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    font-family: "Karla", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#about{
+    width: 85%;
+    margin: auto;
+}

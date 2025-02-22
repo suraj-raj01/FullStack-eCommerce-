@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import Categories from "../Categories/Categories";
 import { Link, Outlet } from "react-router-dom";
-import Nav from "react-bootstrap/Nav";
-import ProductCategory from "../Components/ProductCategory";
 import Crousel from "../Components/Crousel";
 import { useContext } from "react";
 import { myLoginContext } from "../Context/LoginContext";
 import axios from "axios";
 import BASE_URL from "../Config";
-import Form from 'react-bootstrap/Form'
 
 const Home = () => {
   const { setIsLogedIn } = useContext(myLoginContext);
