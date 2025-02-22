@@ -156,8 +156,8 @@ const ShopNow = () => {
                   <img
                     src={`${BASE_URL}/${shopItem.defaultImage}`}
                     alt=""
-                    height="200px"
-                    width='250px'
+                    height="130px"
+                    width='150px'
                     onClick={() => {
                       seeDetails(shopItem._id);
                     }}
