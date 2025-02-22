@@ -1,3 +1,4 @@
+const customerModel = require("../models/customerModel");
 const ProductModel = require("../models/productModel")
 
 
@@ -179,6 +180,17 @@ const updateRating = async(req,res) =>{
         res.status(400).json(error)
     }
 }
+
+const searchCustomer = async(req,res)=>{
+    const{email} = req.body;
+    try {
+        const Data = await customerModel.find({"useremail": { $regex: email,$options:'i'}});
+        res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
 module.exports = {
     productSave,
     displayData,
@@ -197,4 +209,5 @@ module.exports = {
     displaySmartWatches,
     displayWatches,
     updateRating,
+    searchCustomer
 }

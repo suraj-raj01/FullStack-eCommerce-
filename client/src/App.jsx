@@ -12,6 +12,7 @@ import ProductInsert from "./Admin/ProductInsert";
 import Update from "./Admin/Update";
 import PrimaryProduct from "./Pages/PrimaryProduct";
 import CustomerRecord from "./Admin/CustomerRecord";
+import SearchCustomer from "./Admin/SearchCustomer";
 import UserDashboard from "./Users/UserDashboard";
 import UserProfile from "./Users/UserProfile";
 import Purchases from "./Users/Purchases";
@@ -64,6 +65,7 @@ const App = () => {
             <Route path="update" element={<Update/>}/>
             <Route path="editproductdata/:id" element={<EditProductData/>}/>
             <Route path="customerrecord" element={<CustomerRecord/>}/>
+            <Route path="searchcustomer" element={<SearchCustomer/>}/>
           </Route>
           <Route path="/userdashboard" element={<UserDashboard/>}>
             <Route index element={<UserProfile/>}/>
