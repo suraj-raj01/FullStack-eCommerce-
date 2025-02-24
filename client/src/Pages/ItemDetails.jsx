@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addCartData, addLikeData } from "../redux/cartSlice";
 import { Rating } from "primereact/rating";
 import { useNavigate } from "react-router-dom";
+import { toast,ToastContainer } from "react-toastify";
 const desc = ["terrible", "bad", "normal", "good", "wonderful", "Awesome"];
 import axios from "axios";
 import "../Style/details.css";
@@ -60,12 +61,12 @@ const ItemDetails = () => {
             <img
               src={`${BASE_URL}/${key.defaultImage}`}
               alt=""
-              width="80%"
+              width="300px"
               onClick={() => {
                 seeDetails(key._id);
               }}
             />
-            <div id="img-option">
+            {/* <div id="img-option">
               {key.images.map((key1) => {
                 return (
                   <>
@@ -92,7 +93,7 @@ const ItemDetails = () => {
                   </>
                 );
               })}
-            </div>
+            </div> */}
           </div>
 
           <div id="contents">
@@ -228,8 +229,6 @@ const ItemDetails = () => {
             id="orgImg"
             src={`${BASE_URL}/${mydata.defaultImage}`}
             alt=""
-            height='300px'
-            width='300px'
           />
           <div id="img-option">
             {Images.map((key) => {
@@ -364,7 +363,7 @@ const ItemDetails = () => {
         <div id="cards">{ans}</div>
         </div>
       </div>
-      
+      <ToastContainer/>
     </>
   );
 };

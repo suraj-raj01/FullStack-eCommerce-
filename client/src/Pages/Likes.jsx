@@ -5,6 +5,7 @@ import {useDispatch,useSelector } from "react-redux";
 import {itemDislike } from "../redux/cartSlice";
 import Button from "react-bootstrap/Button"
 import BASE_URL from "../Config";
+import { toast,ToastContainer } from 'react-toastify';
 const Likes = () => {
   const dispatch = useDispatch();
   const navigate =  useNavigate();
@@ -12,8 +13,8 @@ const Likes = () => {
   useEffect(()=>{
     if (!localStorage.getItem("username"))
     {
+      toast.error("Please Login first!!!")
       navigate("/login");
-      alert("Please Login first!!!")
     }
   },[])
 
@@ -67,6 +68,7 @@ const Likes = () => {
     <div id="checkout-btn">
     <h3>Total Price : {totalPrime}{".00 ₹"}</h3>
     </div>
+    <ToastContainer/>
     </>
   )
 }

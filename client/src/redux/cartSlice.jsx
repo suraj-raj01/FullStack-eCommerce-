@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast} from "react-toastify";
+
 const counterSlice = createSlice({
   name: "addtoCart",
   name:"addtoLike",
@@ -9,12 +11,12 @@ const counterSlice = createSlice({
   reducers: {
     addCartData: (state, action) => {
       const proData = state.cart.filter((key) => key.id == action.payload.id);
-      console.log(proData);
       if (proData.length >= 1) {
-        alert("Product aleready added!");
+        toast.error("Product aleready added!");
       } else {
         state.cart.push(action.payload);
-        alert("Item add successfully!!")
+        toast.success("Item added successfully!!")
+        console.log("HIII")
       }
     },
     itemInc: (state, action) => {
@@ -32,7 +34,7 @@ const counterSlice = createSlice({
             state.cart = state.cart.filter(
               (item) => item.id != action.payload.id
             );
-            alert("Item Successfully removed!!");
+            toast.success("Item Successfully removed!!");
           } else {
             state.cart[i].qnty--;
           }
@@ -41,25 +43,24 @@ const counterSlice = createSlice({
     },
     itemDel: (state, action) => {
       state.cart = state.cart.filter((item) => item.id != action.payload.id);
-      alert("Item Successfully removed!!");
+      toast.error("Item Successfully removed!!");
     },
 
     addLikeData: (state, action) => {
       const proData = state.likes.filter((key) => key.id == action.payload.id);
       if (proData.length >= 1) {
-        alert("Product aleready liked!!");
+        toast.error("Product aleready liked!!");
       } else {
         state.likes.push(action.payload);
-        alert("Product succesfully added to likes");
+        toast.success("Product succesfully added to likes");
       }
     },
 
     itemDislike: (state, action) => {
       state.likes = state.likes.filter((item) => item.id != action.payload.id);
-      alert("Item disliked!!")
+      toast.error("Item disliked!!")
     },
   },
-  
 },
 );
 export const { addCartData, itemInc, itemDec, itemDel,addLikeData,itemDislike } = counterSlice.actions;

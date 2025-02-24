@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addCartData, addLikeData } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "primereact/rating";
+import {toast,ToastContainer } from "react-toastify";
 const desc = ["terrible", "bad", "normal", "good", "wonderful", "Awesome"];
 
 const PrimaryProduct = () => {
@@ -25,11 +26,9 @@ const PrimaryProduct = () => {
     }
   };
 
+  
   useEffect(() => {
     loadData();
-  }, []);
-
-  useEffect(() => {
     setTimeout(() => {
       setStatus(false);
     }, 1000);
@@ -51,6 +50,25 @@ const PrimaryProduct = () => {
     }
   };
 
+  const addDataToCart = (id,name,brand,price,description,category,subcategory,images,defaultImage,ratings,status) =>{
+    dispatch(
+      addCartData({
+        id: id,
+        name: name,
+        brand: brand,
+        price: price,
+        description: description,
+        category: category,
+        subcategory: subcategory,
+        images: images,
+        defaultImage:defaultImage,
+        ratings: ratings,
+        status: status,
+        qnty: 1,
+      })
+    )
+  }
+
   const shopnow=(id)=>{
     navigate(`/shopnow/${id}`)
   }
@@ -68,7 +86,7 @@ const PrimaryProduct = () => {
                 seeDetails(key._id);
               }}
             />
-            <div id="img-option">
+            {/* <div id="img-option">
               {key.images.map((key1) => {
                 return (
                   <>
@@ -95,7 +113,7 @@ const PrimaryProduct = () => {
                   </>
                 );
               })}
-            </div>
+            </div> */}
           </div>
 
           <div id="contents">
@@ -128,22 +146,19 @@ const PrimaryProduct = () => {
                 size="sm"
                 variant="success"
                 onClick={() => {
-                  dispatch(
-                    addCartData({
-                      id: key._id,
-                      name: key.name,
-                      brand: key.brand,
-                      price: key.price,
-                      description: key.description,
-                      category: key.category,
-                      subcategory: key.subcategory,
-                      images: key.images,
-                      defaultImage: key.defaultImage,
-                      ratings: key.ratings,
-                      status: key.status,
-                      qnty: 1,
-                    })
-                  );
+                    addDataToCart(
+                      key._id,
+                      key.name,
+                      key.brand,
+                      key.price,
+                      key.description,
+                      key.category,
+                      key.subcategory,
+                      key.images,
+                      key.defaultImage,
+                      key.ratings,
+                      key.status,
+                    )
                 }}
               >
                 {" "}
@@ -205,6 +220,7 @@ const PrimaryProduct = () => {
       ) : (
         <div id="cards">{res}</div>
       )}
+      <ToastContainer/>
     </>
   );
 };

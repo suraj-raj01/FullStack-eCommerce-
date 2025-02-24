@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import {addCartData,addLikeData} from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "primereact/rating";
+import { toast,ToastContainer } from "react-toastify";
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 const Watches = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Watches = () => {
       const response = await axios.post(api);
       setMydata(response.data);
     } catch (error) {
-      alert(error.response.data.msg);
+      toast.error(error.response.data.msg);
     }
   }
   useEffect(()=>{
@@ -63,10 +64,10 @@ const Watches = () => {
               src={`${BASE_URL}/${key.defaultImage}`}
               alt=""
               height="250px"
-              width="80%"
+              width="350"
               onClick={()=>{seeDetails(key._id)}}
             />
-            <div id="img-option">
+            {/* <div id="img-option">
             {
             key.images.map((key1)=>{
               return(
@@ -78,7 +79,7 @@ const Watches = () => {
                 </>
               )
             })}
-            </div>
+            </div> */}
           </div>
           
           <div id="contents">
@@ -155,6 +156,7 @@ const Watches = () => {
           {res}
           </div>
         )}
+  <ToastContainer/>
     </>
   )
 }

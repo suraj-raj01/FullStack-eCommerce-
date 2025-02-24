@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import BASE_URL from "../Config";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast,ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Login = () => {
             const response = await axios.post(api,input);
             localStorage.setItem("token",response.data.token);
             console.log(response.data.token)
-            toast.success(response.data);
+            toast.success("Login Successfully completed");
             navigate("/home")
         } catch (error) {
           toast.error(error.response.data.msg);
@@ -73,8 +74,8 @@ const Login = () => {
         <br />
       </Form>
      </div>
-      <ToastContainer />
      <br /><br /><br />
+     <ToastContainer/>
     </>
   );
 };

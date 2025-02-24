@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import BASE_URL from "../Config";
 import axios from "axios";
 import Button from "react-bootstrap/Button"
-import { Flex, Rate } from 'antd';
 import { useDispatch } from "react-redux";
 import {addCartData,addLikeData} from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "primereact/rating";
+import { toast,ToastContainer } from "react-toastify";
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 const Mouse = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const Mouse = () => {
       const response = await axios.post(api);
       setMydata(response.data);
     } catch (error) {
-      alert(error.response.data.msg);
+      toast.error(error.response.data.msg);
     }
   }
   useEffect(()=>{
@@ -63,10 +63,10 @@ const Mouse = () => {
             <img
               src={`${BASE_URL}/${key.defaultImage}`}
               alt=""
-              width="300px"
+              width="350px"
               onClick={()=>{seeDetails(key._id)}}
             />
-            <div id="img-option">
+            {/* <div id="img-option">
             {
             key.images.map((key1)=>{
               return(
@@ -78,7 +78,7 @@ const Mouse = () => {
                 </>
               )
             })}
-            </div>
+            </div> */}
           </div>
           
           <div id="contents">
@@ -155,6 +155,7 @@ const Mouse = () => {
           {res}
           </div>
         )}
+        <ToastContainer/>
     </>
   )
 }
