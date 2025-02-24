@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import BASE_URL from "../Config";
-import { toast,ToastContainer } from "react-toastify";
+import { toast} from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -32,7 +32,6 @@ const Register = () => {
        try {
          const res = await axios.post(api,input);
          toast.success("Registration successfully completed!!");
-        alert("Registration success")
         console.log(res.data)
          navigate("/login")
        } catch (error) {
@@ -119,7 +118,6 @@ const Register = () => {
         <br />
     </Form>
       </div>
-      <ToastContainer />
     </>
   );
 };
