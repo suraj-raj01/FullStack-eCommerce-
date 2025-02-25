@@ -35,7 +35,7 @@
 #item-details #images img {
     object-fit: contain;
     width: fit-content;
-    width: 400px;
+    width: 100%;
     height: 350px;
     color: red; /* Ensures the image scales with the container */
 }
@@ -166,6 +166,9 @@
 
     #item-details #img-option{
         flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
     #item-details #img-option img {
         height: 65px;
