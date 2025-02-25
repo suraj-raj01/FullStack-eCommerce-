@@ -16,7 +16,6 @@ const counterSlice = createSlice({
       } else {
         state.cart.push(action.payload);
         toast.success("Item added successfully!!")
-        console.log("HIII")
       }
     },
     itemInc: (state, action) => {

@@ -10,10 +10,10 @@ const AdminDashboard = () => {
       <div id="dashboard">
         <div id="nav">
         <Nav.Link as={Link} to="adminprofile"><i class="fas fa-user"></i> Profile</Nav.Link>
+        <Nav.Link as={Link} to="searchcustomer"><i class="fas fa-magnifying-glass"></i> Search Customer</Nav.Link>
         <Nav.Link as={Link} to="insert"><i class="fas fa-plus"></i> Insert Data</Nav.Link>
         <Nav.Link as={Link} to="update"><i class="fas fa-wrench"></i> Update</Nav.Link>
         <Nav.Link as={Link} to="customerrecord"><i class="fas fa-clipboard"></i> Customer Records</Nav.Link>
-        <Nav.Link as={Link} to="searchcustomer"><i class="fas fa-magnifying-glass"></i> Search Customer</Nav.Link>
         </div>
         <div id="content-data">
             <Outlet/>

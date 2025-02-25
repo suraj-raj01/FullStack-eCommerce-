@@ -40,7 +40,7 @@ const UserDashboard = () => {
           <Button size="sm" variant="danger" onClick={logout}>
             <i class="fas fa-right-to-bracket"></i> Logout
           </Button>
-          <i class="fas fa-circle-user" id="user-icon"></i>
+          {/* <i class="fas fa-circle-user" id="user-icon"></i> */}
         </div>
       </div>
       <div id="dashboard">

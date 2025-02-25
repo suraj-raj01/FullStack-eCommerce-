@@ -14,7 +14,6 @@ const Purchases = () => {
     try {
       const response = await axios.post(api,{userid:userid});
       setMydata(response.data);
-      console.log(response.data);
     } catch (error) {
       alert(error.response.data.msg);
     }

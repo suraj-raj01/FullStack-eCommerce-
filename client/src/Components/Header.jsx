@@ -18,7 +18,7 @@ const Header = () => {
             <div id="box">
             <Button size="sm" variant="danger" onClick={home}><i class="fas fa-house"></i> Home</Button>
             <Button size="sm" variant="danger" onClick={logout}><i class="fas fa-arrow-right-from-bracket"></i> Logout</Button>
-            <i class="fas fa-circle-user"></i>
+            {/* <i class="fas fa-circle-user"></i> */}
             </div>
         </div>
     </>
