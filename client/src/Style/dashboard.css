@@ -23,7 +23,7 @@
 #nav {
     width: 20%;
     height: 82vh;
-    background-color: #183961;
+    background-color: #0A1F13;
     border: 1px dotted transparent;
     border-right-color: white;
 }
@@ -37,6 +37,10 @@
     margin: 15px auto;
     font-weight: bold;
     border-radius: 5px;
+}
+#nav a:focus{
+    background-color: #fff;
+    color: #0A1F13;
 }
 
 /* Content Section */
@@ -54,7 +58,7 @@
     width: 100%;
     box-shadow: 2px 2px 15px #dedcdced;
     border-radius: 10px;
-    border: 1px dotted #183961;
+    border: 1px dotted #0A1F13;
     padding: 10px;
 }
 #insert-form Button {
@@ -75,7 +79,7 @@
 #header {
     width: 100%;
     height: 10vh;
-    background-color: #183961;
+    background-color: #0A1F13;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -245,19 +249,22 @@ input{
     #insert-form Form #box {
         width: 100%;
     }
-    Button{
-        font-size: 6px;
+    Button i{
+        font-size: 12px;
     }
-    #header{
-        flex-direction: column;
-        align-items: start;
-        height: 12vh;
-    }
+    
     #header #box{
+        display: flex;
+        align-items: center;
         justify-content: center;
-        text-align: center;
-        align-content: center;
-        padding: 5px 0px;
+        gap: 5px;
+        text-align: start;
+    }
+    #header #box h3{
+        font-size: 18px;
+    }
+    #header #box Button{
+        font-size: 12px;
     }
     #header #box #user-icon{
         font-size: 28px;

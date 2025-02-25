@@ -10,7 +10,6 @@ const CartItems = () => {
   const dispatch = useDispatch();
   const navigate= useNavigate();
   const Data = useSelector((state) => state.addtoCart.cart);
-  console.log(Data);
 
   useEffect(()=>{
     if (!localStorage.getItem("username"))

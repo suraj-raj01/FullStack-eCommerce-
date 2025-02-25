@@ -22,20 +22,20 @@
 
 .navbar a {
     font-weight: bold;
-    color: #183961;
+    color: #0A1F13;
 }
 
 .navbar i {
-    color: #183961;
+    color: #0A1F13;
 }
 
 #footer {
     background-color: whitesmoke;
     text-align: center;
     padding: 20px 0;
-    color: #183961;
+    color: #0A1F13;
     border: 1px dotted transparent;
-    border-top-color: #183961;
+    border-top-color: #0A1F13;
 }
 
 #footer-icon {
@@ -45,7 +45,7 @@
     padding: 10px;
     gap: 15px;
     font-size: 20px;
-    color: #183961;
+    color: #0A1F13;
 }
 
 #carousel-img {
@@ -98,7 +98,7 @@
 }
 
 #categories #box:hover {
-    background-color: #183961;
+    background-color: #0A1F13;
     transition: 0.8s;
     color: white;
     cursor: pointer;
@@ -151,7 +151,7 @@
 
 #cards #box #img-option img {
     object-fit: contain;
-    border: 1px dotted #183961;
+    border: 1px dotted #0A1F13;
     height: 60px;
     width: 60px;
     padding: 5px;
@@ -165,7 +165,7 @@
 }
 
 #cards #box #contents #pro-name {
-    color: #183961;
+    color: #0A1F13;
     font-size: 22px;
     padding-bottom: 10px;
 }
@@ -211,8 +211,8 @@
     top: 10vh;
     padding: 5px 10px;
     border: 1px dotted transparent;
-    border-right-color: #183961;
-    border-top-color: #183961;
+    border-right-color: #0A1F13;
+    border-top-color: #0A1F13;
     border-top-right-radius: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -246,7 +246,7 @@ Table td {
 }
 
 Table td i {
-    color: #183961;
+    color: #0A1F13;
 }
 
 #checkout-btn {
@@ -501,7 +501,7 @@ textarea{
     #categories #box{
         background-color: #fff;
         transition: 0.8s;
-        color: #183961;
+        color: #0A1F13;
         border: 1px dotted;
         cursor: pointer;
         text-align: center;
