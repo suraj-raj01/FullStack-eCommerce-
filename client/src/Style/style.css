@@ -209,22 +209,37 @@
     height: 100vh;
     position: sticky;
     top: 10vh;
-    padding: 5px 10px;
+    padding: 10px 10px;
     border: 1px dotted transparent;
     border-right-color: #0A1F13;
     border-top-color: #0A1F13;
     border-top-right-radius: 5px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: start;
-    justify-content: center;
+    justify-content: start;
+    gap: 10px;
+    color: #0A1F13;
 }
-#hero #filter a{
-    width: 250px;
-    padding: 8px;
-    text-align: center;
-    border: 1px solid;
-    border-radius: 5px;
+
+#hero #filter Button{
+    width: 100%;
+    color: #0A1F13;
+    background-color: #e8e6e6d8;
+    border: none;
+    box-shadow: 0 0 2px #c0bebeb4;
+    transition: .6s ease-in;
+}
+#hero #filter Button:hover{
+    background-color: #0A1F13;
+    color: white;
+    transition: .6s ease-in;
+}
+
+#hero #filter Button:focus{
+    background-color: #0A1F13;
+    color: white;
+    transition: .6s ease-in;
 }
 
 #hero #filterdata {
@@ -265,6 +280,16 @@ textarea{
     border-radius: 5px;
     padding: 5px 10px;
     outline: none;
+}
+
+#range{
+    text-align: center;
+}
+#range input{
+ width: 100%;
+ border-radius: 5px;
+ border: none;
+ box-shadow: 0 0 1px;
 }
 
 /* Responsive Styles for 1024px to 1440px */
