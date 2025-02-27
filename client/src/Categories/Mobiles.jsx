@@ -155,7 +155,7 @@ const Mobiles = () => {
           {res}
           </div>
         )}
-        <ToastContainer/>
+        <ToastContainer limit={1}/>
     </>
   )
 }

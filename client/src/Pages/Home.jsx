@@ -56,7 +56,7 @@ const Home = () => {
       <hr />
       <div id="hero">
         <div id="filter">
-          <b className="text-start">Fileter by price ₹</b>
+          {/* <b className="text-start">Fileter by price ₹</b>
           <Button>
             <i class="fas fa-circle-arrow-up"></i> Low To High{" "}
             <i class="fas fa-circle-arrow-down"></i>
@@ -96,7 +96,7 @@ const Home = () => {
             <input type="number" placeholder="0.00 ₹" />
             TO
             <input type="number" placeholder="1000000.00 ₹" />
-          </div>
+          </div> */}
         </div>
         <div id="filterdata">
           <Outlet />
