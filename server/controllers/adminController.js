@@ -15,7 +15,6 @@ const productSave = async (req, res) => {
         images: [imgUrls],
         defaultImage: imgUrls[0]
     })
-    console.log(req.body);
     res.status(200).json("Product successfully Uploaded!!")
 }
 
@@ -52,7 +51,6 @@ const editProductSave = async(req,res) =>{
             images: [imgUrls],
             defaultImage: imgUrls[0]
         })
-        console.log(Data);
         res.status(200).json("Product successfully Uploaded!!")
     } catch (error) {
         res.status(400).json(error);

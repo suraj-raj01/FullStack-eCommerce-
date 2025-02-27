@@ -30,9 +30,9 @@ const SearchCustomer = () => {
             {key.amount}
             {".00 ₹"}
           </td>
-          <td style={{ width: "130px" }}>{key.name}</td>
+          <td style={{ width: "130px" }}>{key.name.toUpperCase()}</td>
           <td>{key.useremail}</td>
-          <td style={{ width: "160px" }}>{key.shippingaddress}</td>
+          <td style={{ width: "300px" }}>{key.shippingaddress}</td>
           <td style={{ width: "110px" }}>{date1[0]}</td>
           <td>
             <img src={key.defaultImg} alt="" height="80px" width="90px" />

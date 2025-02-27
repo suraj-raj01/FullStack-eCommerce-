@@ -31,9 +31,9 @@ const CustomerRecord = () => {
             <tr id='customer-records'>
                 <td style={{width:'200px'}}>{key.productname}</td>
                 <td style={{width:'80px'}}>{key.amount}{".00 ₹"}</td>
-                <td style={{width:'130px'}}>{key.name}</td>
+                <td style={{width:'130px'}}>{key.name.toUpperCase()}</td>
                 <td>{key.useremail}</td>
-                <td style={{width:'160px'}}>{key.shippingaddress}</td>
+                <td style={{width:'280px'}}>{key.shippingaddress}</td>
                 <td style={{width:'110px'}}>{date1[0]}</td>
                 <td>
                   <img src={key.defaultImg} alt="" height='80px' width='90px'/>

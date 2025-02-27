@@ -77,7 +77,7 @@ const Register = () => {
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
-          <Form.Control placeholder="Pin Code"
+          <Form.Control placeholder="PinCode"
           name="pincode" value={input.pincode} onChange={handleInput}
           />
         </Form.Group>
