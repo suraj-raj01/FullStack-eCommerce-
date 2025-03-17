@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Style/style.css"
 import "./Style/dashboard.css"
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import '@ant-design/v5-patch-for-react-19';
 import {Provider} from "react-redux";
 import store from "./redux/store.jsx";
 import LoginContext from './Context/LoginContext.jsx';

@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { myLoginContext } from "../Context/LoginContext";
-import { toast, ToastContainer } from "react-toastify";
+import { message } from "antd";
 
 const UserDashboard = () => {
   const navigate = useNavigate();
@@ -13,13 +13,13 @@ const UserDashboard = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("username")) {
-      toast.error("Login Please!!!");
+      message.error("Login Please!!!");
       navigate("/home");
     }
   }, []);
 
   const logout = () => {
-    toast.warning("Logout Successfully!!!");
+    message.warning("Logout Successfully!!!");
     localStorage.clear();
     setIsLogedIn(false);
     navigate("/home");
@@ -57,7 +57,6 @@ const UserDashboard = () => {
         </div>
       </div>
       <Footer />
-      <ToastContainer/>
     </>
   );
 };

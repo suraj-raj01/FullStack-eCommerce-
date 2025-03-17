@@ -3,6 +3,8 @@ import BASE_URL from '../Config'
 import axios from 'axios'
 import Table from "react-bootstrap/Table"
 import { useNavigate } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
+import { message } from 'antd'
 
 const Purchases = () => {
   const navigate = useNavigate();
@@ -23,6 +25,17 @@ const Purchases = () => {
     loadData();
   },[])
 
+  const deleteItem=async(id)=>{
+    let api = `${BASE_URL}/user/deleteitems`;
+    try {
+      const response = await axios.post(api,{id:id})
+      message.success(response.data.msg)
+      loadData();
+    } catch (error) {
+      message.error("Something went wrong!!!");
+    }
+  }
+
   const ans = mydata.map((key)=>{
     let date="";
     date = key.date;
@@ -38,6 +51,9 @@ const Purchases = () => {
           <td style={{width:'130px'}}>{date1[0]}</td>
           <td className='text-start'>{key.useremail}</td>
           <td className='text-start'>{key.shippingaddress}</td>
+          <td className='text-start'>
+            <Button size='sm' variant='danger' onClick={()=>{deleteItem(key._id)}} style={{width:'60px'}}><i class="fas fa-trash" style={{color:'white'}}></i> </Button>
+          </td>
         </tr>
       </>
     )
@@ -56,6 +72,7 @@ const Purchases = () => {
             <th>Order Date</th>
             <th>Customer Email</th>
             <th>Shipping Address</th>
+            <th>Remove</th>
            </tr>
         </thead>
         <tbody>

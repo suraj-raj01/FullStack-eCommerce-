@@ -2,7 +2,9 @@ import React from 'react'
 
 const AdminProfile = () => {
   return (
-    <div>AdminProfile</div>
+    <>
+     <h3>Welcome to Admin Dashboard</h3> 
+    </>
   )
 }
 

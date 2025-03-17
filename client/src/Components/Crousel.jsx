@@ -22,7 +22,7 @@ const Crousel = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              src="https://www.top10mobileshop.com/images/top10mobiles.com/slider/270514103202408151136.jpg"
+              src="https://www.reliancedigital.in/akamai/images/products/OppoReno12Pro_20.jpg"
               alt=""
               width="100%"
               height="500px"
@@ -37,7 +37,7 @@ const Crousel = () => {
           
           <Carousel.Item >
             <img
-              src="https://www.top10mobileshop.com/images/top10mobiles.com/slider/747523986202408151132.jpg"
+              src="https://static.toiimg.com/thumb/msid-112624489,width-1280,height-720,resizemode-4/112624489.jpg"
               alt=""
               width="100%"
               height="500px"

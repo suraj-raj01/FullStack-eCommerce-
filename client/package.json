@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/v5-patch-for-react-19": "^1.0.3",
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@reduxjs/toolkit": "^2.5.1",
-    "antd": "^5.24.0",
+    "antd": "^5.24.3",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "primereact": "^10.9.2",
