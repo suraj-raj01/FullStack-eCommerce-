@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import BASE_URL from "../Config";
 import {toast,ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { message } from "antd";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -30,10 +31,10 @@ const Login = () => {
             const response = await axios.post(api,input);
             localStorage.setItem("token",response.data.token);
             console.log(response.data.token)
-            toast.success("Login Successfully completed");
+            message.success("Login Successfully completed");
             navigate("/home")
         } catch (error) {
-          toast.error(error.response.data.msg);
+          message.error(error.response.data.msg);
         }
     }
 

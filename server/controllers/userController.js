@@ -1,7 +1,8 @@
 const UserModel = require("../models/userModel")
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
-const CustomerModel = require("../models/customerModel")
+const CustomerModel = require("../models/customerModel");
+const userModel = require("../models/userModel");
 
 const registration = async (req, res) => {
     const { name, shippingaddress, apartment, mobileno, pincode, district, state, useremail, password } = req.body;
@@ -84,11 +85,22 @@ const purchasedItems = async(req,res)=>{
     }
 }
 
+const deleteItem = async(req,res)=>{
+    const{id} = req.body;
+    try {
+       const Data = await CustomerModel.findByIdAndDelete(id);
+        res.status(200).json({msg:"Item deleted successfully"});
+    } catch (error) {
+        res.status(400).json({msg:"Something went wrong"})
+    }
+}
+
 module.exports = {
     registration,
     userLogin,
     userProfile,
     userProfileShow,
     customerRecords,
-    purchasedItems
+    purchasedItems,
+    deleteItem
 }

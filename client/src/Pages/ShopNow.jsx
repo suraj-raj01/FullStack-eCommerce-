@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import BASE_URL from "../Config";
+import { message } from "antd";
 const ShopNow = () => {
   const { id } = useParams();
   const myid = localStorage.getItem("userid");
@@ -13,7 +14,7 @@ const ShopNow = () => {
   useEffect(() => {
     if (!localStorage.getItem("username")) {
       navigate("/login");
-      alert("Please Login First!!");
+      message.error("Please Login First!!");
     }
   }, []);
 

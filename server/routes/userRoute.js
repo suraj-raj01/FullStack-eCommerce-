@@ -7,6 +7,7 @@ route.post("/userlogin",userController.userLogin)
 route.post("/profile",userController.userProfile)
 route.post("/userprofileshow",userController.userProfileShow)
 route.get("/customerrecords",userController.customerRecords)
-route.post("/purchaseditems",userController.purchasedItems)
+route.post("/purchaseditems",userController.purchasedItems);
+route.post("/deleteitems",userController.deleteItem)
 
 module.exports = route;

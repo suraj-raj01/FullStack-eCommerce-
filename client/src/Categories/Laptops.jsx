@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import BASE_URL from "../Config";
 import axios from "axios";
 import Button from "react-bootstrap/Button"
-import { Flex, Rate } from 'antd';
+import { Flex, message, Rate } from 'antd';
 import { useDispatch } from "react-redux";
 import {addCartData,addLikeData} from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "primereact/rating";
-import { toast,ToastContainer } from "react-toastify";
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful','Awesome'];
 const Laptops = () => {
   const[status,setStatus] = useState(false);
@@ -22,7 +21,7 @@ const Laptops = () => {
       const response = await axios.post(api);
       setMydata(response.data);
     } catch (error) {
-      toast.error(error.response.data.msg);
+      message.error(error.response.data.msg);
     }
   }
   useEffect(()=>{
@@ -154,7 +153,6 @@ const Laptops = () => {
           {res}
           </div>
         )}
-        <ToastContainer/>
     </>
   )
 }

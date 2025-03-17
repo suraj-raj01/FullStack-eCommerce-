@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { itemInc, itemDec, itemDel } from "../redux/cartSlice";
 import Button from "react-bootstrap/Button"
 import BASE_URL from "../Config";
-import { toast,ToastContainer} from "react-toastify";
+import { message } from "antd";
 const CartItems = () => {
   const dispatch = useDispatch();
   const navigate= useNavigate();
@@ -14,7 +14,7 @@ const CartItems = () => {
   useEffect(()=>{
     if (!localStorage.getItem("username"))
     {
-      toast.error("Please Login!!")
+      message.error("Please Login!!")
       navigate("/login");
     }
   },[])
@@ -89,7 +89,6 @@ const CartItems = () => {
       <i class="fas fa-money-check-dollar"></i>  CHECKOUT BILL
        </Button>
     </div>
-    <ToastContainer/>
     </>
   );
 };
