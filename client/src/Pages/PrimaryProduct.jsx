@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { addCartData, addLikeData } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "primereact/rating";
-import {toast,ToastContainer } from "react-toastify";
 const desc = ["terrible", "bad", "normal", "good", "wonderful", "Awesome"];
 
 const PrimaryProduct = () => {
@@ -26,9 +25,11 @@ const PrimaryProduct = () => {
     }
   };
 
-  
-  useEffect(() => {
+  useEffect(()=>{
     loadData();
+  },[])
+
+  useEffect(() => {
     setTimeout(() => {
       setStatus(false);
     }, 1000);
@@ -220,7 +221,6 @@ const PrimaryProduct = () => {
       ) : (
         <div id="cards">{res}</div>
       )}
-      <ToastContainer/>
     </>
   );
 };

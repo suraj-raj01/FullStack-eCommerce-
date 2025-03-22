@@ -51,8 +51,8 @@ const TopNav = () => {
               <Nav.Link as={Link} to="cartitems">
               {"Carts"} <i class="fas fa-cart-shopping"></i><sup><span id="cart-count">{count}</span></sup> {" "}
               </Nav.Link>
-              <Nav.Link as={Link} to="likes">
-                <i class="fas fa-heart"></i> {"Likes"}{" "}
+              <Nav.Link as={Link} to="likes" style={{color:'#bb2d3b'}}>
+                <i class="fas fa-heart" style={{color:'#bb2d3b'}}></i> {"Likes"}{" "}
               </Nav.Link>
               {isLogedIn?(
                   <Nav.Link  as={Link} to="userdashboard" >
