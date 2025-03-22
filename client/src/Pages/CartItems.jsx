@@ -29,7 +29,7 @@ const CartItems = () => {
     return (
       <>
         <tr>
-          <td>
+          <td style={{cursor:'pointer'}}>
             <img
               src={`${BASE_URL}/${key.defaultImage}`}
               alt=""
