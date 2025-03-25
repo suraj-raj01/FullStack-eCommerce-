@@ -19,7 +19,7 @@ const Checkout = () => {
       if (!localStorage.getItem("username"))
       {
         navigate("/home");
-        alert("Please Login!!")
+        alert("Please Login First!!")
       }
     },[])
 
