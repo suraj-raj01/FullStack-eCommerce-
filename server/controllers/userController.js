@@ -31,10 +31,10 @@ const userLogin = async(req,res)=>{
         const User = await UserModel.findOne({useremail:useremail});
         const comparePass = await bcrypt.compare(password,User.password);
         if(!User){
-            res.status(400).json("Invalid Username")
+            res.status(400).json({msg:"Invalid Username"})
         }
         else if(!comparePass){
-            res.status(400).json("Invalid Password!!");
+            res.status(400).json({msg:"Invalid Password!!"});
         }
         else{
         const token = await jwt.sign({id:User._id}, process.env.JWT_SECRET, { expiresIn: '7 days'});  

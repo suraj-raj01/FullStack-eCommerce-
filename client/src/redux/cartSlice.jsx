@@ -1,21 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {message} from "antd"
+import { message } from "antd";
 
 const counterSlice = createSlice({
   name: "addtoCart",
-  name:"addtoLike",
+  name: "addtoLike",
   initialState: {
     cart: [],
     likes: [],
   },
   reducers: {
     addCartData: (state, action) => {
-      const proData = state.cart.filter((key) => key.id == action.payload.id);
-      if (proData.length >= 1) {
-        message.error("Product aleready added!");
+      const isProductInCart = state.cart.some((item) => item.id === action.payload.id);
+
+      if (isProductInCart) {
+        message.error("Product already added!");
       } else {
         state.cart.push(action.payload);
-        message.success("Item added successfully!!")
+        message.success("Item added successfully!!");
       }
     },
     itemInc: (state, action) => {
@@ -25,7 +26,7 @@ const counterSlice = createSlice({
         }
       }
     },
-  
+
     itemDec: (state, action) => {
       for (var i = 0; i < state.cart.length; i++) {
         if (state.cart[i].id == action.payload.id) {
@@ -57,10 +58,9 @@ const counterSlice = createSlice({
 
     itemDislike: (state, action) => {
       state.likes = state.likes.filter((item) => item.id != action.payload.id);
-      message.error("Item disliked!!")
+      message.error("Item disliked!!");
     },
   },
-},
-);
-export const { addCartData, itemInc, itemDec, itemDel,addLikeData,itemDislike } = counterSlice.actions;
+});
+export const {addCartData,itemInc,itemDec,itemDel,addLikeData,itemDislike} = counterSlice.actions;
 export default counterSlice.reducer;

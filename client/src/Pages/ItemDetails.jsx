@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { addCartData, addLikeData } from "../redux/cartSlice";
 import { Rating } from "primereact/rating";
 import { useNavigate } from "react-router-dom";
-import { toast,ToastContainer } from "react-toastify";
 const desc = ["terrible", "bad", "normal", "good", "wonderful", "Awesome"];
 import axios from "axios";
 import "../Style/details.css";
@@ -363,7 +362,6 @@ const ItemDetails = () => {
         <div id="cards">{ans}</div>
         </div>
       </div>
-      <ToastContainer/>
     </>
   );
 };
