@@ -7,7 +7,6 @@ import { useContext } from "react";
 import { myLoginContext } from "../Context/LoginContext";
 import axios from "axios";
 import BASE_URL from "../Config";
-import { ToastContainer, toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 import { Slider } from "antd";
 
@@ -36,7 +35,7 @@ const Home = () => {
       localStorage.setItem("username", response.data.name);
       setIsLogedIn(true);
     } catch (error) {
-      toast.error(error);
+      console.log(error)
     }
   };
 
@@ -102,7 +101,6 @@ const Home = () => {
           <Outlet />
         </div>
       </div>
-      <ToastContainer />
     </>
   );
 };

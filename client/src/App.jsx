@@ -3,6 +3,7 @@ import { BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from "./Pages/Home";
 import LayOut from "./LayOut";
 import About from "./Pages/About";
+import Filter from "./Filter/Filter";
 import Services from "./Pages/Services";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
@@ -29,6 +30,9 @@ import Checkout from "./Pages/Checkout";
 import SmartWatches from "./Categories/SmartWatches";
 import Watches from "./Categories/Watches";
 import ShopNow from "./Pages/ShopNow";
+import FilterByPrice from "./Filter/FilterByPrice";
+import FilterByName from "./Filter/FilterByName";
+import FilterByCategories from "./Filter/FilterByCategories";
 
 const App = () => {
   return (
@@ -50,6 +54,13 @@ const App = () => {
             </Route>
             <Route path="likes" element={<Likes/>}/>
             <Route path="about" element={<About/>}/>
+            <Route path="filter" element={<Filter/>}>
+              <Route index element={<FilterByPrice/>}/>
+              <Route path="filterbyprice" element={<FilterByPrice/>}/>
+              <Route path="filterbyprice/:selectedOption" element={<FilterByPrice/>}/>
+              <Route path="filterbyname" element={<FilterByName/>}/>
+              <Route path="filterbycategory" element={<FilterByCategories/>}/>
+            </Route>
             <Route path="services" element={<Services/>}/>
             <Route path="login" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
