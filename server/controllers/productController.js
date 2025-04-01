@@ -11,6 +11,17 @@ const showRelatedProduct = async(req,res) =>{
     }
 }
 
+const FilterProduct=async(req,res)=>{
+    const{value} = req.body;
+    try {
+    const Data = (await ProductModel.find()).filter(key=>key.price<=value);
+    res.status(200).json(Data);
+    } catch (error) {
+        res.status(400).json(error); 
+    }
+}
+
 module.exports = {
-    showRelatedProduct
+    showRelatedProduct,
+    FilterProduct
 }

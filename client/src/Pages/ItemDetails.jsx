@@ -18,6 +18,7 @@ const ItemDetails = () => {
   const [mydata, setMydata] = useState({});
   const [Images, setImages] = useState([]);
   const [relatedData, setrelatedData] = useState([]);
+  const [status,setStatus] = useState(false);
 
   const loadData = async () => {
     const api = `${BASE_URL}/admin/itemdetails`;
@@ -51,6 +52,7 @@ const ItemDetails = () => {
   const shopnow=(id)=>{
     navigate(`/shopnow/${id}`)
   }
+
 
   const ans = relatedData.map((key)=>{
     return(
@@ -185,6 +187,13 @@ const ItemDetails = () => {
       </>
     )
   })
+
+  const showRelated=()=>{
+    setStatus(true);
+  }
+  const hideRelated=()=>{
+    setStatus(false);
+  }
 
   const handleRate = async (id) => {
     let api = `${BASE_URL}/admin/updaterating`;
@@ -354,14 +363,32 @@ const ItemDetails = () => {
       </div>
       <br />
       <hr />
-      <h3 align="center">Related Products !!</h3>
+      
       <hr />
       <div id="hero">
         <div id="filter" style={{border:'none'}}></div>
         <div id="filterdata">
-        <div id="cards">{ans}</div>
+        <div id="cards">
+          {
+            status?(
+              ans
+            ):(
+              ""
+            )
+          }
         </div>
+        <h3 align="center">
+        {status===true?(
+          
+          <Button variant="danger" onClick={hideRelated} className="mt-5 mb-5"><i class="fas fa-minus"></i> Less Related Products</Button>
+        ):(
+          <Button variant="success" onClick={showRelated}><i class="far fa-circle-down"></i> Load Related Products</Button>
+        )}
+      </h3>
+        </div>
+        
       </div>
+      
     </>
   );
 };

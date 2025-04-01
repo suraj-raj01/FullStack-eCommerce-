@@ -34,6 +34,7 @@ const TopNav = () => {
             <Nav className="me-auto">
               <Nav.Link as={Link} to="home">Home</Nav.Link>
               <Nav.Link as={Link} to="about">About</Nav.Link>
+              <Nav.Link as={Link} to="filter">Filter</Nav.Link>
             <NavDropdown title="Category" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="home/laptops">Laptops</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="home/mobiles">Mobiles</NavDropdown.Item>
