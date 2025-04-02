@@ -372,7 +372,7 @@ const FilterByPrice = () => {
         </center>
       ) : (
         <div id="cards">{
-          status?(res):(res1)
+          res1
         }</div>
       )}
     </>
