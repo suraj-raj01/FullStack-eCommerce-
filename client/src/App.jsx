@@ -57,9 +57,11 @@ const App = () => {
             <Route path="filter" element={<Filter/>}>
               <Route index element={<FilterByPrice/>}/>
               <Route path="filterbyprice" element={<FilterByPrice/>}/>
-              <Route path="filterbyprice/:selectedOption" element={<FilterByPrice/>}/>
+              <Route path="filterbyprice/:priceChange" element={<FilterByPrice/>}/>
               <Route path="filterbyname" element={<FilterByName/>}/>
+              <Route path="filterbyname/:input" element={<FilterByName/>}/>
               <Route path="filterbycategory" element={<FilterByCategories/>}/>
+              <Route path="filterbycategory/:category" element={<FilterByCategories/>}/>
             </Route>
             <Route path="services" element={<Services/>}/>
             <Route path="login" element={<Login/>}/>

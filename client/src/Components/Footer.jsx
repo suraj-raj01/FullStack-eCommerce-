@@ -12,9 +12,9 @@ const Footer = () => {
             <i class="fab fa-linkedin"></i>
             <i class="fab fa-twitter-square"></i>
             </div>
-            <b>SHOP CART </b><br />
+            <b>ShopingCart </b><br />
             <b>Developed By Suraj Kumar</b> <br />
-            <b>Everything is reserved!! by shopcart.com.in</b><br />
+            <b>Everything is reserved!! by shopingcart.com.in</b><br />
             <b>www.shopcart.com</b> <br />
         </div>
     </>

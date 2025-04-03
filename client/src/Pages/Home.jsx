@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Categories from "../Categories/Categories";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Crousel from "../Components/Crousel";
 import { useContext } from "react";
@@ -23,7 +23,7 @@ const onChangeComplete = (value) => {
 
 const Home = () => {
   const { setIsLogedIn } = useContext(myLoginContext);
-
+  const navigate = useNavigate();
   const getProfile = async () => {
     const token = localStorage.getItem("token");
     const api = `${BASE_URL}/user/profile`;
@@ -38,6 +38,10 @@ const Home = () => {
       console.log(error)
     }
   };
+
+  useEffect(()=>{
+    navigate("/home");
+  },[])
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
