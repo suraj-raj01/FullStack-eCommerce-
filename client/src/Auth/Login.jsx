@@ -34,6 +34,7 @@ const Login = () => {
             navigate("/home")
         } catch (error) {
           message.error(error.response.data.msg);
+          console.log(error);
         }
     }
 
