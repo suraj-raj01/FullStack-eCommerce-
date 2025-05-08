@@ -25,25 +25,41 @@ const registration = async (req, res) => {
     }
 }
 
-const userLogin = async(req,res)=>{
-    const{ useremail, password } = req.body;
+const userLogin = async (req, res) => {
+    const { useremail, password } = req.body;
+    console.log(useremail, password);
+
     try {
-        const User = await UserModel.findOne({useremail:useremail});
-        const comparePass = await bcrypt.compare(password,User.password);
-        if(!User){
-            res.status(400).json({msg:"Invalid Username"})
+        // Step 1: Check if user exists
+        const User = await UserModel.findOne({ useremail: useremail });
+        if (!User) {
+            return res.status(400).json({ msg: "Invalid Username" });
         }
-        else if(!comparePass){
-            res.status(400).json({msg:"Invalid Password!!"});
+
+        console.log(User);
+
+        // Step 2: Compare passwords
+        const comparePass = await bcrypt.compare(password, User.password);
+        if (!comparePass) {
+            return res.status(400).json({ msg: "Invalid Password!!" });
         }
-        else{
-        const token = await jwt.sign({id:User._id}, process.env.JWT_SECRET, { expiresIn: '7 days'});  
-        res.status(200).send({token:token});
-        }
+
+        // Step 3: Generate JWT token
+        const token = jwt.sign(
+            { id: User._id },
+            process.env.JWT_SECRET,
+            { expiresIn: '7d' }
+        );
+
+        // Step 4: Send token
+        return res.status(200).json({ token: token });
+
     } catch (error) {
-        res.status(400).send({msg:"Something went wrong!!!"})
+        console.error("Login error:", error);
+        return res.status(500).json({ msg: "Something went wrong!!!" });
     }
-}
+};
+
 
 const userProfile = async(req, res)=>{
     const token = req.header("Authorization");
