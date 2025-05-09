@@ -88,12 +88,13 @@
 
 #categories #box {
     width: 200px;
-    height: 40px;
+    height: 100px;
     box-shadow: 1px 1px 2px #c0bebeb4;
     text-align: center;
     align-content: center;
     border-radius: 5px;
     transition: 0.8s;
+    font-size: larger;
     background-color: #e8e6e6d8;
 }
 
@@ -463,10 +464,12 @@ textarea{
 
     #categories {
         gap: 10px;
+        width: 100%;
     }
     
     #categories #box {
-        width: 90%;
+        width: 100%;
+        font-size: medium;
     }
 
     #form {

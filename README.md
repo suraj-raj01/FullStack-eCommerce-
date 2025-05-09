@@ -17,7 +17,7 @@ This is a fully functional eCommerce website built using the **MERN** stack (**M
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB (Mongoose ORM)
 - **Authentication:** JSON Web Tokens (JWT), bcrypt
-- **Payment Integration:** RazorPay / PayPal
+- **Payment Integration:** RazorPay
 - **Cloud Storage:** Multer (for product images)
 - **Deployment:** Vercel (Frontend), Render (Backend)
 
@@ -47,7 +47,7 @@ cd ecommerce-mern
 ```
 ### 2️⃣ Backend Setup
 ```sh
-cd backend
+cd server
 npm install
 ```
 Create a `.env` file inside the `backend/` directory and add the necessary environment variables:
@@ -63,7 +63,7 @@ nodemon
 
 ### 3️⃣ Frontend Setup
 ```sh
-cd ../frontend
+cd ../client
 npm install
 ```
 Run the frontend:
