@@ -15,25 +15,23 @@ const Laptops = () => {
 
   const[mydata,setMydata] = useState([]);
   const [value, setValue] = useState(0);
-  const loadData = async() =>{
-    let api = `${BASE_URL}/admin/displaylaptops`;
+  useEffect(() => {
+    const fetchData = async () => {
+      setStatus(true);
+      let api = `${BASE_URL}/admin/displaylaptops`;
     try {
       const response = await axios.post(api);
       setMydata(response.data);
     } catch (error) {
-      message.error(error.response.data.msg);
+      console.error(error);
+    } finally {
+      setStatus(false); 
     }
-  }
-  useEffect(()=>{
-    loadData();
-  },[])
+  };
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setStatus(false)
-    },1000);
-      setStatus(true);
-  },[])
+  fetchData();
+}, []);
+
 
   const handleRate = async (id) => {
     let api = `${BASE_URL}/admin/updaterating`;

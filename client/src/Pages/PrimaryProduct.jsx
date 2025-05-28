@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BASE_URL from "../Config";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
@@ -15,26 +15,23 @@ const PrimaryProduct = () => {
   const [status, setStatus] = useState(false);
   const [value, setValue] = useState(0);
 
-  const loadData = async () => {
-    const api = `${BASE_URL}/admin/displayprimarydata`;
-    try {
-      const response = await axios.get(api);
-      setMydata(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(()=>{
-    loadData();
-  },[])
-
   useEffect(() => {
-    setTimeout(() => {
-      setStatus(false);
-    }, 1000);
-    setStatus(true);
+    const fetchData = async () => {
+      setStatus(true); 
+      const api = `${BASE_URL}/admin/displayprimarydata`;
+      try {
+        const response = await axios.get(api);
+        setMydata(response.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setStatus(false);
+      }
+    };
+
+    fetchData();
   }, []);
+
 
   const seeDetails = (id) => {
     navigate(`/itemdetails/${id}`);
@@ -51,7 +48,7 @@ const PrimaryProduct = () => {
     }
   };
 
-  const addDataToCart = (id,name,brand,price,description,category,subcategory,images,defaultImage,ratings,status) =>{
+  const addDataToCart = (id, name, brand, price, description, category, subcategory, images, defaultImage, ratings, status) => {
     dispatch(
       addCartData({
         id: id,
@@ -62,7 +59,7 @@ const PrimaryProduct = () => {
         category: category,
         subcategory: subcategory,
         images: images,
-        defaultImage:defaultImage,
+        defaultImage: defaultImage,
         ratings: ratings,
         status: status,
         qnty: 1,
@@ -70,7 +67,7 @@ const PrimaryProduct = () => {
     )
   }
 
-  const shopnow=(id)=>{
+  const shopnow = (id) => {
     navigate(`/shopnow/${id}`)
   }
 
@@ -129,37 +126,37 @@ const PrimaryProduct = () => {
             {/* <b>Status : {key.status}</b> */}
             <b>
               Ratings : {key.ratings} {desc[key.ratings]}
-              </b>
-              <h2></h2>
-              <div className=" flex justify-content-center">
-                <Rating
-                  value={key.ratings}
-                  onChange={(e) => setValue(e.value)}
-                  onClick={() => {
-                    handleRate(key._id);
-                  }}
-                  cancel={false}
-                />
-              </div>
+            </b>
+            <h2></h2>
+            <div className=" flex justify-content-center">
+              <Rating
+                value={key.ratings}
+                onChange={(e) => setValue(e.value)}
+                onClick={() => {
+                  handleRate(key._id);
+                }}
+                cancel={false}
+              />
+            </div>
 
             <div id="btns">
               <Button
                 size="sm"
                 variant="success"
                 onClick={() => {
-                    addDataToCart(
-                      key._id,
-                      key.name,
-                      key.brand,
-                      key.price,
-                      key.description,
-                      key.category,
-                      key.subcategory,
-                      key.images,
-                      key.defaultImage,
-                      key.ratings,
-                      key.status,
-                    )
+                  addDataToCart(
+                    key._id,
+                    key.name,
+                    key.brand,
+                    key.price,
+                    key.description,
+                    key.category,
+                    key.subcategory,
+                    key.images,
+                    key.defaultImage,
+                    key.ratings,
+                    key.status,
+                  )
                 }}
               >
                 {" "}
@@ -189,8 +186,8 @@ const PrimaryProduct = () => {
               >
                 <i class="fas fa-heart"></i> Likes
               </Button>
-              <Button size="sm" variant="success"  onClick={()=>{shopnow(key._id)}}>
-              <i class="fas fa-bag-shopping"></i> Shop Now
+              <Button size="sm" variant="success" onClick={() => { shopnow(key._id) }}>
+                <i class="fas fa-bag-shopping"></i> Shop Now
               </Button>
               <Button
                 size="sm"
@@ -199,7 +196,7 @@ const PrimaryProduct = () => {
                   seeDetails(key._id);
                 }}
               >
-               <i class="fas fa-circle-info"></i> See Details
+                <i class="fas fa-circle-info"></i> See Details
               </Button>
             </div>
           </div>

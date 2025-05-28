@@ -16,25 +16,23 @@ const Tv = () => {
   const [value, setValue] = useState(0);
   const[status,setStatus] = useState(false);
 
-  const loadData = async() =>{
-    let api = `${BASE_URL}/admin/displaytv`;
+useEffect(() => {
+  const fetchData = async () => {
+    setStatus(true); 
+    const api = `${BASE_URL}/admin/displaytv`;
     try {
       const response = await axios.post(api);
       setMydata(response.data);
     } catch (error) {
-      message.error(error.response.data.msg);
+      console.error(error);
+    } finally {
+      setStatus(false); 
     }
-  }
-  useEffect(()=>{
-    loadData();
-  },[])
+  };
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setStatus(false)
-    },1000);
-      setStatus(true);
-  },[])
+  fetchData();
+}, []);
+
 
   const handleRate = async (id) => {
     let api = `${BASE_URL}/admin/updaterating`;

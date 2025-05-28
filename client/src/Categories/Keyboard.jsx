@@ -15,25 +15,23 @@ const Keyboard = () => {
   const[mydata,setMydata] = useState([]);
   const [value, setValue] = useState(0);
 
-  const loadData = async() =>{
-    let api = `${BASE_URL}/admin/displaykeyboards`;
+useEffect(() => {
+  const fetchData = async () => {
+    setStatus(true); // Show loader
+    const api = `${BASE_URL}/admin/displaykeyboards`;
     try {
       const response = await axios.post(api);
       setMydata(response.data);
     } catch (error) {
-      message.error(error.response.data.msg);
+      console.error(error);
+    } finally {
+      setStatus(false); // Hide loader after fetch
     }
-  }
-  useEffect(()=>{
-    loadData();
-  },[])
+  };
 
-    useEffect(()=>{
-      setTimeout(()=>{
-        setStatus(false)
-      },1000);
-        setStatus(true);
-    },[])
+  fetchData();
+}, []);
+
 
     const handleRate = async (id) => {
       let api = `${BASE_URL}/admin/updaterating`;
